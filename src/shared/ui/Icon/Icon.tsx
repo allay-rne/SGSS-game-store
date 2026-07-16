@@ -3,6 +3,7 @@ import GmailIcon from '@/shared/assets/icons/gmail.svg?react'
 import TelegramIcon from '@/shared/assets/icons/telegram.svg?react'
 import GithubIcon from '@/shared/assets/icons/github.svg?react'
 import './Icon.scss'
+import classNames from "classnames";
 
 const icon = {
   gmail: GmailIcon,
@@ -13,6 +14,7 @@ const icon = {
 export type IconName = keyof typeof icon;
 
 interface IconProps {
+  className?: string;
   name: IconName;
   ariaLabel?: string;
   style?: React.CSSProperties;
@@ -20,6 +22,7 @@ interface IconProps {
 
 const Icon = (props: IconProps) => {
   const {
+    className,
     name,
     ariaLabel,
     style,
@@ -31,7 +34,7 @@ const Icon = (props: IconProps) => {
 
   return (
     <span
-      className="icon"
+      className={classNames(className, 'icon')}
       aria-label={ariaLabel}
       aria-hidden={!ariaLabel}
       style={style}

@@ -1,0 +1,81 @@
+:root {
+  --color-bg: #0a0a0f;
+  --color-surface: #14141c;
+  --color-surface-2: #1c1c26;
+
+  --color-primary: #7c3aed;
+  --color-primary-hover: #8b5cf6;
+  --color-primary-light: #a78bfa;
+
+  --color-accent: #c084fc;
+  --color-accent-light: #ede9fe;
+
+  --color-text: #f0f0f2;
+  --color-text-secondary: #b4b4bd;
+  --color-text-light: #f0f0f2;
+
+  --color-border-dark: #3a3a45;
+  --color-border: #24242e;
+  --color-border-light: #2c2c38;
+  --color-border-form: #3a3a45;
+
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-danger: #ef4444;
+
+  --color-icon: #b4b4bd;
+  --color-icon-muted: #6b6b76;
+  --color-button-filter: #24242e;
+  --color-favorite: #c084fc;
+
+  --color-header-bg: rgba(10, 10, 15, 0.9);
+  --color-footer-gradient-start: #14141c;
+  --color-footer-gradient-end: #0a0a0f;
+
+  --color-filter-active-bg: #24242e;
+
+  --gradient-primary: linear-gradient(
+    90deg,
+    #6d28d9 0%,
+    #9333ea 50%,
+    #6d28d9 100%
+  );
+
+  --hero-overlay: rgba(10, 10, 15, 0.55);
+
+  --shadow-s: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-m: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-l: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+  --font-family-base: 'Golos Text', sans-serif;
+  --font-family-accent: 'Unbounded', sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --font-size-big: 52px;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-mini: 12px;
+
+  --border-radius-xs: 5px;
+  --border-radius-s: 10px;
+  --border-radius-m: 16px;
+  --border-radius-l: 24px;
+  --border-radius-xl: 32px;
+  --border-radius-full: 999px;
+
+  --border-width-s: 1px;
+  --border-width-m: 2px;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  --container-width: 1280px;
+  --container-padding-x: clamp(20px, 4vw, 40px);
+}

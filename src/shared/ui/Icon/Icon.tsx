@@ -7,12 +7,16 @@ import FingerAuthIcon from '@/shared/assets/icons/fingerAuth.svg?react';
 import SearchIcon from '@/shared/assets/icons/search.svg?react';
 import BellIcon from '@/shared/assets/icons/notifications.svg?react';
 import ShoppingIcon from '@/shared/assets/icons/shopping.svg?react';
+import VkIcon from '@/shared/assets/icons/vk.svg?react';
+import YoutubeIcon from '@/shared/assets/icons/youtube.svg?react';
 import './Icon.scss'
 
 const icon = {
   gmail: GmailIcon,
   telegram: TelegramIcon,
   github: GithubIcon,
+  vk: VkIcon,
+  youtube: YoutubeIcon,
   auth: FingerAuthIcon,
   search: SearchIcon,
   bell: BellIcon,

@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import Icon, {type IconName} from "@/shared/ui/Icon";
 import classNames from "classnames";
 import * as React from "react";
+import './Button.scss'
 
 type CommonProps = {
   mode?: '' | 'transparent';
@@ -104,7 +105,9 @@ const Button = (props: ButtonProps) => {
       className={sharedClassName}
       title={title}
       aria-label={title}
-      type={type} {...rest}>
+      type={type}
+      {...rest}
+    >
       {content}
     </button>
   )

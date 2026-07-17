@@ -1,3 +1,39 @@
 .input {
+  position: relative;
+  display: flex;
+  align-items: center;
 
+  &__inner {
+    width: 100%;
+    padding: 12px 44px 12px 16px;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: var(--border-width-s) solid var(--color-border);
+    border-radius: var(--border-radius-s);
+    outline: none;
+    transition: border-color var(--transition-fast);
+
+    &:focus,
+    &:focus-visible {
+      outline: none !important;
+    }
+
+    &::placeholder {
+      color: var(--color-text-secondary);
+    }
+
+    &:focus {
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-icon);
+  }
 }

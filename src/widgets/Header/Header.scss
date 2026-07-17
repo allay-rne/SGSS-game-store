@@ -1,3 +1,29 @@
 .header {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 16px 0;
+  }
 
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  &__nav {
+
+  }
+
+  &__input {
+    flex: 1;
+    max-width: 480px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
 }

@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header
-      className='header'
+      className='header container'
     >
       <div className="header__inner">
         <Logo
@@ -22,7 +22,7 @@ const Header = () => {
         />
         <Input
           className="header__input"
-          type="search"
+          type="text"
           name="search"
           placeholder="Search by games, genres, developers..."
           iconName="search"

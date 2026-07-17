@@ -1,14 +1,22 @@
 import * as React from "react";
-import GmailIcon from '@/shared/assets/icons/gmail.svg?react'
-import TelegramIcon from '@/shared/assets/icons/telegram.svg?react'
-import GithubIcon from '@/shared/assets/icons/github.svg?react'
-import './Icon.scss'
 import classNames from "classnames";
+import GmailIcon from '@/shared/assets/icons/gmail.svg?react';
+import TelegramIcon from '@/shared/assets/icons/telegram.svg?react';
+import GithubIcon from '@/shared/assets/icons/github.svg?react';
+import FingerAuthIcon from '@/shared/assets/icons/fingerAuth.svg?react';
+import SearchIcon from '@/shared/assets/icons/search.svg?react';
+import BellIcon from '@/shared/assets/icons/notifications.svg?react';
+import ShoppingIcon from '@/shared/assets/icons/shopping.svg?react';
+import './Icon.scss'
 
 const icon = {
   gmail: GmailIcon,
   telegram: TelegramIcon,
   github: GithubIcon,
+  auth: FingerAuthIcon,
+  search: SearchIcon,
+  bell: BellIcon,
+  basketShop: ShoppingIcon,
 }
 
 export type IconName = keyof typeof icon;

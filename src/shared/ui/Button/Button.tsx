@@ -4,11 +4,11 @@ import classNames from "classnames";
 import * as React from "react";
 
 type CommonProps = {
-  mode?: '' | 'transparent'
-  label: string
-  isLabelHidden?: boolean
-  iconName?: IconName
-  iconPosition?: 'after' | 'before'
+  mode?: '' | 'transparent';
+  label: string;
+  isLabelHidden?: boolean;
+  iconName?: IconName;
+  iconPosition?: 'after' | 'before';
 }
 
 type AsButton =
@@ -51,7 +51,17 @@ const Button = (props: ButtonProps) => {
   })
 
   if (props.href !== undefined) {
-    const {href, target, ...rest} = props
+    const {
+      href,
+      target,
+      className,
+      mode,
+      label,
+      isLabelHidden,
+      iconName,
+      iconPosition,
+      ...rest
+    } = props
     const isExternal = href.startsWith('http') || href.startsWith('//')
 
     if (isExternal) {
@@ -79,7 +89,16 @@ const Button = (props: ButtonProps) => {
     )
   }
 
-  const {type, ...rest} = props
+  const {
+    type,
+    className: _className,
+    mode: _mode,
+    label: _label,
+    isLabelHidden: _isLabelHidden,
+    iconName: _iconName,
+    iconPosition: _iconPosition,
+    ...rest
+  } = props
   return (
     <button
       className={sharedClassName}

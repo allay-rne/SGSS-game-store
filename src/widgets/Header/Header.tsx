@@ -3,7 +3,7 @@ import Nav from "@/widgets/Header/ui/Nav";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import BurgerButton from "@/widgets/Header/ui/BurgerButton";
-import {navItems} from "@/shared/lib/navItems.ts";
+import {navItems} from "@/widgets/Header/lib/navItems.ts";
 import useBurger from "@/widgets/Header/model/useBurger.ts";
 import MobileMenu from "@/widgets/Header/ui/MobileMenu";
 import './Header.scss'

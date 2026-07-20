@@ -1,0 +1,12 @@
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  border-radius: var(--border-radius-m);
+  padding: 20px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}

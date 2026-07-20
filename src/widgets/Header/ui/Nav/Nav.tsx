@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
 import classNames from 'classnames'
-import type {Navigation} from "@/shared/lib/navItems.ts";
+import type {Navigation} from "@/widgets/Header/lib/navItems.ts";
 import './Nav.scss'
 
 interface NavProps {

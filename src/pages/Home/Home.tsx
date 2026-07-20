@@ -1,14 +1,15 @@
 import './Home.scss'
+import MainSidebar from "@/widgets/MainSidebar";
 
 const Home = () => {
 
 
   return (
-    <div
+    <main
       className='home'
     >
-      Home page
-    </div>
+      <MainSidebar />
+    </main>
   )
 }
 

@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import Modal from "@/shared/ui/Modal";
 import Nav from "@/widgets/Header/ui/Nav";
 import Button from "@/shared/ui/Button";
-import {navItems} from "@/shared/lib/navItems.ts";
+import {navItems} from "@/widgets/Header/lib/navItems.ts";
 import './MobileMenu.scss'
 
 

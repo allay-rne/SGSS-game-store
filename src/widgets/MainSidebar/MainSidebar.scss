@@ -1,0 +1,81 @@
+.sidebar {
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+    border: var(--border-width-s) solid var(--color-border);
+    border-radius: var(--border-radius-m);
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: var(--border-width-s) solid var(--color-border);
+    }
+
+    h3 {
+      font-size: var(--font-size-mini);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      padding: 0 12px;
+    }
+  }
+
+  &__group-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: var(--border-radius-s);
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-small);
+      cursor: pointer;
+      transition: background-color var(--transition-fast), color var(--transition-fast);
+
+      &:hover {
+        background-color: var(--color-surface-2);
+        color: var(--color-text);
+      }
+
+      &--active {
+        background-color: var(--color-filter-active-bg);
+        border: var(--border-width-s) solid var(--color-border-light);
+        color: var(--color-primary-light);
+      }
+    }
+  }
+
+  &__premium {
+    background-image: url('/src/shared/assets/images/premium.webp');
+    background-size: cover;
+    background-position: top center;
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    border: var(--border-width-s) solid var(--color-border-light);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  &__premium-text {
+    font-size: var(--font-size-mini);
+    color: var(--color-text-secondary);
+    text-align: center;
+    line-height: 1.4;
+  }
+}

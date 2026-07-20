@@ -1,6 +1,6 @@
 import Logo from "@/shared/ui/Logo";
 import Icon from "@/shared/ui/Icon";
-import {footerLinks, socialLinks} from "@/shared/lib/footerLinks.ts";
+import {footerLinks, socialLinks} from "@/widgets/Footer/lib/footerLinks.ts";
 import './Footer.scss'
 
 

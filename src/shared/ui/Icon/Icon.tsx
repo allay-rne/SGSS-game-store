@@ -27,6 +27,15 @@ import WheelIcon from '@/shared/assets/icons/wheel.svg?react';
 import InfinityIcon from '@/shared/assets/icons/infinity.svg?react';
 import GamepadIcon from '@/shared/assets/icons/gamepad.svg?react';
 import VRIcon from '@/shared/assets/icons/vr.svg?react';
+import LogoutIcon from '@/shared/assets/icons/logout.svg?react';
+import PersonIcon from '@/shared/assets/icons/person.svg?react';
+import PrivacyIcon from '@/shared/assets/icons/lockPrivat.svg?react';
+import SettingsIcon from '@/shared/assets/icons/settings.svg?react';
+import KeyIcon from '@/shared/assets/icons/key.svg?react';
+import BooksIcon from '@/shared/assets/icons/book.svg?react';
+import MessageIcon from '@/shared/assets/icons/message.svg?react';
+import AchievementsIcon from '@/shared/assets/icons/achievements.svg?react';
+import ActivityIcon from '@/shared/assets/icons/activity.svg?react';
 
 import './Icon.scss'
 
@@ -62,6 +71,17 @@ const icon = {
   update: UpdateIcon,
   downloadGame: DownloadGameIcon,
   historyClock: HistoryClockIcon,
+  //sidebar profile
+  books: BooksIcon,
+  message: MessageIcon,
+  achievements: AchievementsIcon,
+  activity: ActivityIcon,
+  //sidebar profile ACCOUNT
+  person: PersonIcon,
+  privacy: PrivacyIcon,
+  settings: SettingsIcon,
+  key: KeyIcon,
+  logout: LogoutIcon,
 }
 
 export type IconName = keyof typeof icon;

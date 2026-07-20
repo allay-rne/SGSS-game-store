@@ -38,7 +38,9 @@ const MainSidebar = (props: MainSidebarProps) => {
         <p className="sidebar__premium-text">
           More bonuses, discounts, and exclusive content every month.
         </p>
-        <Button label="Read more" />
+        <Button
+          label="Read more"
+        />
       </div>
     </Sidebar>
   )

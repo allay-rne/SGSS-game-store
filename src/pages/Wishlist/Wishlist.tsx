@@ -1,4 +1,5 @@
 import './Wishlist.scss'
+import MainSidebar from "@/widgets/MainSidebar";
 
 const Wishlist = () => {
 
@@ -6,7 +7,7 @@ const Wishlist = () => {
     <div
       className='wishlist'
     >
-      Wishlist page
+      <MainSidebar />
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import './Profile.scss'
+import ProfileSidebar from "@/widgets/ProfileSidebar";
 
 const Profile = () => {
 
@@ -6,7 +7,7 @@ const Profile = () => {
     <div
       className='profile'
     >
-      Profile
+      <ProfileSidebar />
     </div>
   )
 }

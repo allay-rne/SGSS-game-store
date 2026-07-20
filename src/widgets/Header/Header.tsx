@@ -46,11 +46,12 @@ const Header = () => {
           />
           <Button
             className="header_actions-btn hidden-mobile"
-            label="Shop basket"
+            label="Cart"
             isLabelHidden
             mode="transparent"
             iconName='basketShop'
             iconPosition='before'
+            href="/cart"
           />
           <Button
             className="header_actions-btn hidden-mobile"

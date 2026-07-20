@@ -46,12 +46,12 @@ const Footer = () => {
         ))}
       </div>
 
-      <div className="footer__social">
-        <h3 className="footer__social-title">{title}</h3>
-        <div className="footer__social-list">
+      <div className="footer__soc1al">
+        <h3 className="footer__soc1al-title">{title}</h3>
+        <div className="footer__soc1al-list">
           {socialItems.map(({ label, iconName, href }) => (
             <a
-            className="footer__social-link"
+            className="footer__soc1al-link"
             href={href}
             key={label}
             target="_blank"

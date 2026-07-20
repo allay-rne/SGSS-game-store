@@ -1,4 +1,5 @@
 import './Cart.scss'
+import MainSidebar from "@/widgets/MainSidebar";
 
 const Cart = () => {
 
@@ -6,7 +7,7 @@ const Cart = () => {
     <div
       className='cart'
     >
-      Cart
+      <MainSidebar />
     </div>
   )
 }

@@ -15,7 +15,7 @@ const Nav = (props: NavProps) => {
   } = props
 
   return (
-    <nav className={classNames('nav', 'hidden-mobile', className)}>
+    <nav className={classNames('nav', className)}>
       <ul className="nav__list">
         {items.map(({label, to}) => (
           <li

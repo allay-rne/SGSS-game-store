@@ -1,27 +1,35 @@
 import Logo from "@/shared/ui/Logo";
-import Nav from "@/shared/ui/Nav";
+import Nav from "@/widgets/Header/ui/Nav";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
+import BurgerButton from "@/widgets/Header/ui/BurgerButton";
 import {navItems} from "@/shared/lib/navItems.ts";
+import useBurger from "@/widgets/Header/model/useBurger.ts";
+import MobileMenu from "@/widgets/Header/ui/MobileMenu";
 import './Header.scss'
 
 const Header = () => {
 
+  const {
+    isActive,
+    handleToggleMenu,
+  } = useBurger()
+
   return (
     <header
-      className='header container'
+      className='header'
     >
-      <div className="header__inner">
+      <div className="header__inner container">
         <Logo
           className="header__logo"
           loading="eager"
         />
         <Nav
-          className="header__nav"
+          className="header__nav hidden-mobile"
           items={navItems}
         />
         <Input
-          className="header__input"
+          className="header__input hidden-laptop-s"
           type="text"
           name="search"
           placeholder="Search by games, genres, developers..."
@@ -29,7 +37,15 @@ const Header = () => {
         />
         <div className="header__actions">
           <Button
-            className="header_actions-btn"
+            className="header_actions-btn visible-laptop-s"
+            label="Search"
+            isLabelHidden
+            mode="transparent"
+            iconName="search"
+            iconPosition="before"
+          />
+          <Button
+            className="header_actions-btn hidden-mobile"
             label="Shop basket"
             isLabelHidden
             mode="transparent"
@@ -37,7 +53,7 @@ const Header = () => {
             iconPosition='before'
           />
           <Button
-            className="header_actions-btn"
+            className="header_actions-btn hidden-mobile"
             label="Notifications"
             isLabelHidden
             mode="transparent"
@@ -45,15 +61,24 @@ const Header = () => {
             iconPosition='before'
           />
           <Button
-            className="header_actions-btn"
+            className="header_actions-btn hidden-mobile"
             label="Profile"
             isLabelHidden
             mode="transparent"
             iconName="auth"
             iconPosition='before'
           />
+
+          <BurgerButton
+            isActive={isActive}
+            onToggleMenu={handleToggleMenu}
+          />
         </div>
       </div>
+
+      <MobileMenu
+        isOpen={isActive}
+      />
     </header>
   )
 }

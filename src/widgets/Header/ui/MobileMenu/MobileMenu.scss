@@ -1,0 +1,30 @@
+.mobile-menu {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    min-height: 100%;
+    padding: 100px 24px 40px;
+  }
+
+  &__nav {
+    .nav__list {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav__link {
+      font-size: 28px;
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}

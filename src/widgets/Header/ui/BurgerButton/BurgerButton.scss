@@ -1,0 +1,44 @@
+.burger-button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+
+  &__svg {
+    display: block;
+  }
+
+  &__line {
+    fill: none;
+    stroke: var(--color-icon);
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset var(--transition-normal), opacity var(--transition-normal);
+  }
+
+  &__line--1,
+  &__line--3 {
+    stroke-dasharray: 70.7 135.9;
+    stroke-dashoffset: 0;
+  }
+
+  &__line--2 {
+    stroke-dasharray: 60 60;
+    transition: opacity var(--transition-normal);
+  }
+
+  &--active {
+    .burger-button__line--1,
+    .burger-button__line--3 {
+      stroke-dashoffset: -135.9;
+    }
+
+    .burger-button__line--2 {
+      opacity: 0;
+    }
+  }
+}

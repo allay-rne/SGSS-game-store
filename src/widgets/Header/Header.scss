@@ -8,11 +8,9 @@
   }
 
   &__logo {
+    position: relative;
     flex-shrink: 0;
-  }
-
-  &__nav {
-
+    z-index: 999;
   }
 
   &__input {

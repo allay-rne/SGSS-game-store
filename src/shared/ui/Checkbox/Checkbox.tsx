@@ -4,12 +4,14 @@ import './Checkbox.scss'
 
 interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
+  count?: number;
 }
 
 const Checkbox = (props:CheckboxProps) => {
   const {
     className,
     label,
+    count,
     ...rest
   } = props
 
@@ -23,6 +25,7 @@ const Checkbox = (props:CheckboxProps) => {
         {...rest}
       />
       <span className="checkbox__label">{label}</span>
+      <span className="checkbox__count">{count}</span>
     </label>
   )
 }

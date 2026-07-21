@@ -1,5 +1,5 @@
-import './Home.scss'
 import MainSidebar from "@/widgets/MainSidebar";
+import './Home.scss'
 
 const Home = () => {
 

@@ -1,8 +1,10 @@
 .checkbox {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   cursor: pointer;
+  width: 100%;
 
   &__inner {
     appearance: none;
@@ -39,7 +41,15 @@
   }
 
   &__label {
-    font-size: var(--font-size-small);
+    flex: 1;
     color: var(--color-text-secondary);
+    font-size: var(--font-size-small);
+  }
+
+  &__count {
+    color: var(--color-icon-muted);
+    font-size: var(--font-size-small);
   }
 }
+
+

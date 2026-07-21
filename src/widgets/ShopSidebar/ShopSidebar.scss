@@ -1,3 +1,55 @@
 .shop-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  padding: 20px;
+  border: var(--border-width-s) solid var(--color-border);
+  border-radius: var(--border-radius-m);
 
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & > div {
+      padding-bottom: 20px;
+      border-bottom: var(--border-width-s) solid var(--color-border);
+    }
+  }
+
+  &__filter-label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    letter-spacing: 0.05em;
+  }
+
+  &__reset-btn {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-secondary);
+  }
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__filter-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__price-search {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  &__input-fromto {
+    flex: 1;
+    min-width: 0;
+  }
 }

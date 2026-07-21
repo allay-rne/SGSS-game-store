@@ -1,3 +1,4 @@
+import ShopSidebar from "@/widgets/ShopSidebar";
 import './Shop.scss'
 
 
@@ -5,11 +6,11 @@ const Shop = () => {
 
 
   return (
-    <div
+    <main
       className='shop'
     >
-      Shop page
-    </div>
+      <ShopSidebar />
+    </main>
   )
 }
 

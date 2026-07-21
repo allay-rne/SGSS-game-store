@@ -36,6 +36,8 @@ import BooksIcon from '@/shared/assets/icons/book.svg?react';
 import MessageIcon from '@/shared/assets/icons/message.svg?react';
 import AchievementsIcon from '@/shared/assets/icons/achievements.svg?react';
 import ActivityIcon from '@/shared/assets/icons/activity.svg?react';
+import UpIcon from '@/shared/assets/icons/upMinArr.svg?react';
+import DollarIcon from '@/shared/assets/icons/dollar.svg?react';
 
 import './Icon.scss'
 
@@ -82,6 +84,9 @@ const icon = {
   settings: SettingsIcon,
   key: KeyIcon,
   logout: LogoutIcon,
+  //sidebar shop Acc
+  up: UpIcon,
+  dollar: DollarIcon,
 }
 
 export type IconName = keyof typeof icon;

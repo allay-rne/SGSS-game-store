@@ -1,10 +1,11 @@
+import classNames from 'classnames'
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import Dropdown from "@/shared/ui/Dropdown";
 import FilterGroup from "@/widgets/ShopSidebar/ui/FilterGroup";
-import {shopSortOption} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import {sidebarShopItems} from "@/widgets/ShopSidebar/lib/sidebarShopItems.ts";
-import classNames from 'classnames'
+import {shopSortOption} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
+import './ShopSidebar.scss'
 
 interface ShopSidebarProps {
   className?: string,

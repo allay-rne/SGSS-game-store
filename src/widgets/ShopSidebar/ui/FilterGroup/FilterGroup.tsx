@@ -1,10 +1,8 @@
 import classNames from 'classnames'
-import type {
-  SidebarShopGroup
-} from "@/widgets/ShopSidebar/lib/sidebarShopItems.ts";
-import './FilterGroup.scss'
 import Icon from "@/shared/ui/Icon";
 import Checkbox from "@/shared/ui/Checkbox";
+import type {SidebarShopGroup} from "@/widgets/ShopSidebar/lib/sidebarShopItems.ts";
+import './FilterGroup.scss'
 
 interface FilterGroupProps {
   className?: string,

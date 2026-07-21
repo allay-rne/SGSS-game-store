@@ -1,6 +1,7 @@
 .shop-sidebar {
   width: 300px;
   flex-shrink: 0;
+  margin: 24px;
   padding: 20px;
   border: var(--border-width-s) solid var(--color-border);
   border-radius: var(--border-radius-m);
@@ -14,6 +15,11 @@
     & > div {
       padding-bottom: 20px;
       border-bottom: var(--border-width-s) solid var(--color-border);
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
     }
   }
 

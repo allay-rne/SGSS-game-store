@@ -1,10 +1,8 @@
 import Sidebar from "@/shared/ui/Sidebar";
-import Icon from "@/shared/ui/Icon";
-import {
-  profileSidebarItems
-} from "@/widgets/ProfileSidebar/lib/profileSidebarItems.ts";
-import './ProfileSidebar.scss'
 import Button from "@/shared/ui/Button";
+import Icon from "@/shared/ui/Icon";
+import {profileSidebarItems} from "@/widgets/ProfileSidebar/lib/profileSidebarItems.ts";
+import './ProfileSidebar.scss'
 
 interface ProfileSidebarProps {
   className?: string,

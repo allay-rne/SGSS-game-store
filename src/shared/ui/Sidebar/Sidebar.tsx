@@ -14,13 +14,13 @@ const Sidebar = (props: SidebarProps) => {
   } = props
 
   return (
-    <div
+    <aside
       className={classNames('sidebar', className)}
     >
       <div className="sidebar__inner">
         {children}
       </div>
-    </div>
+    </aside>
   )
 }
 

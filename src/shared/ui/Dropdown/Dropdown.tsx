@@ -1,8 +1,8 @@
 import * as React from "react";
 import classNames from 'classnames'
+import Icon from "@/shared/ui/Icon";
 import type {TypeDropdown} from "@/shared/ui/Dropdown/lib/typeDropdown.ts";
 import './Dropdown.scss'
-import Icon from "@/shared/ui/Icon";
 
 interface DropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: TypeDropdown[];

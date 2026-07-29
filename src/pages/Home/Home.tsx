@@ -1,5 +1,6 @@
 import MainSidebar from "@/widgets/MainSidebar";
 import './Home.scss'
+import Hero from "@/widgets/Hero";
 
 const Home = () => {
 
@@ -9,6 +10,7 @@ const Home = () => {
       className='home'
     >
       <MainSidebar />
+      <Hero />
     </main>
   )
 }

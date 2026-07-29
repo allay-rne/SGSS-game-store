@@ -1,0 +1,78 @@
+.hero {
+  position: relative;
+  height: clamp(620px, 35vw, 450px);
+  margin: 0 clamp(12px, 2vw, 24px);
+  border-radius: var(--border-radius-m);
+  overflow: hidden;
+  box-shadow: var(--shadow-l);
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(24px, 5vw, 60px) clamp(20px, 6vw, 72px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(10, 10, 15, 0.92) 0%,
+        rgba(10, 10, 15, 0.75) 25%,
+        rgba(10, 10, 15, 0.35) 50%,
+        rgba(10, 10, 15, 0) 70%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    font-family: var(--font-family-accent);
+    @include fluid-text(52, 28);
+    font-weight: var(--font-weight-extrabold);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--color-text);
+  }
+
+  &__subtitle {
+    position: relative;
+    z-index: 2;
+    max-width: 460px;
+    margin-top: clamp(8px, 1.5vw, 16px);
+    font-size: clamp(13px, 1.2vw, var(--font-size-base));
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+
+  &__price {
+    position: relative;
+    z-index: 2;
+    margin-top: clamp(8px, 1.5vw, 16px);
+    font-family: var(--font-family-accent);
+    font-size: clamp(16px, 1.8vw, 24px);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-light);
+  }
+
+  &__active {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: clamp(12px, 2vw, 24px);
+  }
+}

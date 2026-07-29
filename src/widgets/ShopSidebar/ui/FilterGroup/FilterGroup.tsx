@@ -3,6 +3,7 @@ import Icon from "@/shared/ui/Icon";
 import Checkbox from "@/shared/ui/Checkbox";
 import type {SidebarShopGroup} from "@/widgets/ShopSidebar/lib/sidebarShopItems.ts";
 import './FilterGroup.scss'
+import {useState} from "react";
 
 interface FilterGroupProps {
   className?: string,
@@ -15,12 +16,30 @@ const FilterGroup = (props:FilterGroupProps) => {
     group,
   } = props
 
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClickOpen = () => {
+    setIsOpen(prev => !prev)
+  }
+
   return (
     <div className={classNames(className, 'filter-group')}>
-      <div className="filter-group__header">
+      <div
+        className="filter-group__header"
+        onClick={handleClickOpen}
+      >
         <span className="filter-group__title">{group.title}</span>
-        <Icon name="up" />
+        <Icon
+          className={classNames('filter-group__icon', {
+            'filter-group__icon--is-open': isOpen
+          })}
+          name="up"
+        />
       </div>
+      <div className={classNames("filter-group__list-wrapper", {
+        'filter-group__list-wrapper--is-open': isOpen
+      })}>
       <ul className="filter-group__list">
         {group.items.map(({title, count, value}) =>(
           <li key={value}>
@@ -32,6 +51,7 @@ const FilterGroup = (props:FilterGroupProps) => {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   )
 }

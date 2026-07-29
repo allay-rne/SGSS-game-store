@@ -29,19 +29,28 @@ const Header = () => {
           items={navItems}
         />
         <Input
-          className="header__input hidden-laptop-s"
+          className="header__input"
           type="text"
           name="search"
           placeholder="Search by games, genres, developers..."
           iconName="search"
         />
         <div className="header__actions">
+
           <Button
-            className="header_actions-btn visible-laptop-s"
+            className="header_search-btn"
             label="Search"
             isLabelHidden
             mode="transparent"
             iconName="search"
+            iconPosition="before"
+          />
+          <Button
+            className="header_actions-btn visible-mobile"
+            label="Filter"
+            isLabelHidden
+            mode="transparent"
+            iconName="filter"
             iconPosition="before"
           />
           <Button

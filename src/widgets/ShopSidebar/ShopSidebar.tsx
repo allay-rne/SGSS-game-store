@@ -23,7 +23,7 @@ const ShopSidebar = (props: ShopSidebarProps) => {
   const featuresGroup = sidebarShopItems.find((group) => group.title === "FEATURES")
 
   return (
-    <aside className={classNames(className, 'shop-sidebar')}>
+    <aside className={classNames(className, 'shop-sidebar hidden-mobile')}>
       <div className="shop-sidebar__inner">
 
         <div className="shop-sidebar__filter">

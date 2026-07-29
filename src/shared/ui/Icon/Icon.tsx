@@ -38,6 +38,7 @@ import AchievementsIcon from '@/shared/assets/icons/achievements.svg?react';
 import ActivityIcon from '@/shared/assets/icons/activity.svg?react';
 import UpIcon from '@/shared/assets/icons/upMinArr.svg?react';
 import DollarIcon from '@/shared/assets/icons/dollar.svg?react';
+import FilterIcon from '@/shared/assets/icons/filter.svg?react';
 
 import './Icon.scss'
 
@@ -53,6 +54,7 @@ const icon = {
   search: SearchIcon,
   bell: BellIcon,
   basketShop: ShoppingIcon,
+  filter: FilterIcon,
   //sidebar main categories
   lightning: LightningIcon,
   star: StarIcon,

@@ -15,7 +15,7 @@ const Sidebar = (props: SidebarProps) => {
 
   return (
     <aside
-      className={classNames('sidebar', className)}
+      className={classNames('sidebar hidden-mobile', className)}
     >
       <div className="sidebar__inner">
         {children}

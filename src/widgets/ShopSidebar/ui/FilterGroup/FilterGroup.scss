@@ -14,10 +14,30 @@
     letter-spacing: 0.05em;
   }
 
+  &__icon {
+    transition: transform var(--transition-fast);
+
+    &--is-open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows var(--transition-fast);
+
+    &--is-open {
+      grid-template-rows: 1fr;
+    }
+  }
+
   &__list {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    overflow: hidden;
     margin-top: 16px;
   }
 }

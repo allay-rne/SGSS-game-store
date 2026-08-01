@@ -40,7 +40,10 @@ import UpIcon from '@/shared/assets/icons/upMinArr.svg?react';
 import DollarIcon from '@/shared/assets/icons/dollar.svg?react';
 import FilterIcon from '@/shared/assets/icons/filter.svg?react';
 import ArrowRightIcon from '@/shared/assets/icons/arrowRight.svg?react';
-
+import ShieldTryIcon from '@/shared/assets/icons/shield.svg?react';
+import TagIcon from '@/shared/assets/icons/tag.svg?react';
+import GiftIcon from '@/shared/assets/icons/gift.svg?react';
+import HeadSetIcon from '@/shared/assets/icons/headset.svg?react';
 
 import './Icon.scss'
 
@@ -93,6 +96,11 @@ const icon = {
   dollar: DollarIcon,
   //GameCard
   arrowRight: ArrowRightIcon,
+  //trustBadges
+  shieldTry: ShieldTryIcon,
+  tag: TagIcon,
+  gift: GiftIcon,
+  headSet: HeadSetIcon,
 }
 
 export type IconName = keyof typeof icon;

@@ -9,10 +9,19 @@
     gap: 32px;
     flex: 1;
     min-width: 0;
-    padding-right: 24px; // отступ от правого края
+    padding-right: 24px;
 
     @include mobile {
       padding-right: 16px;
     }
+  }
+
+  &__full-width {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding: 0 var(--container-padding-x);
+    margin-top: 32px;
   }
 }

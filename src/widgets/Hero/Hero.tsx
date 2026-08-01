@@ -22,7 +22,7 @@ const Hero = () => {
     ]
 
     const fetchGames = async () => {
-      const data = await getGames()
+      const data = await getGames(1)
       const filtered = data.results.filter((game) =>
         allowedGameTitles.includes(game.name)
       )

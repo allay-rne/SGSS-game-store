@@ -39,6 +39,8 @@ import ActivityIcon from '@/shared/assets/icons/activity.svg?react';
 import UpIcon from '@/shared/assets/icons/upMinArr.svg?react';
 import DollarIcon from '@/shared/assets/icons/dollar.svg?react';
 import FilterIcon from '@/shared/assets/icons/filter.svg?react';
+import ArrowRightIcon from '@/shared/assets/icons/arrowRight.svg?react';
+
 
 import './Icon.scss'
 
@@ -89,6 +91,8 @@ const icon = {
   //sidebar shop Acc
   up: UpIcon,
   dollar: DollarIcon,
+  //GameCard
+  arrowRight: ArrowRightIcon,
 }
 
 export type IconName = keyof typeof icon;

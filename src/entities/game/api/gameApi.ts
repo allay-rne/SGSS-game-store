@@ -5,9 +5,9 @@ const API_KEY = import.meta.env.VITE_RAWG_API_KEY
 export interface RawgResponse {
   results: Game[]
 }
-const url = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`
 
-export const getGames = async (): Promise<RawgResponse> => {
+export const getGames = async (page: number): Promise<RawgResponse> => {
+  const url = `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=${page}`
   const response = await fetch(url)
   return (await response.json()) as RawgResponse
 }

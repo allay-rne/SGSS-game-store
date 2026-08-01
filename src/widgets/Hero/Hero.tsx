@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import type { Game } from "@/entities/game/model/game"
+import type { Game } from "@/entities/game/types/game.ts"
 import { getGames } from "@/entities/game/api/gameApi"
 import { extraHeroData } from "@/widgets/Hero/model/extraHero"
 import Slider from "@/shared/ui/Slider"

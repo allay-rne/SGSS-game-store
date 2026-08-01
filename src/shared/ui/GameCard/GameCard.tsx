@@ -29,14 +29,14 @@ const GameCard = (props:GameCardProps) => {
             src={image}
             alt={title}
           />
-        </div>
-        <h2 className="game-card__title">{title}</h2>
-        <footer className="game-card__footer">
-          <div className="game-card__price">
-            <p className="game-card__price-new">{`${price}$`}</p>
-            {oldPrice && (<p className="game-card__price-old">{`${oldPrice}$`}</p>)}
+          <h2 className="game-card__title">{title}</h2>
+          <div className="game-card__price-wrap">
+            <div className="game-card__price">
+              <p className="game-card__price-new">{`${price}$`}</p>
+              {oldPrice && (<p className="game-card__price-old">{`${oldPrice}$`}</p>)}
+            </div>
           </div>
-        </footer>
+        </div>
       </div>
     </div>
   )

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import type { Game } from "@/entities/game/types/game.ts"
 import { getGames } from "@/entities/game/api/gameApi"
 import { extraHeroData } from "@/widgets/Hero/model/extraHero"
+import {sliderConfigHero} from "@/widgets/Hero/model/sliderConfigHero.ts";
 import Slider from "@/shared/ui/Slider"
 import Button from "@/shared/ui/Button"
 import './Hero.scss'
@@ -36,6 +37,7 @@ const Hero = () => {
     <section className='hero'>
       <Slider
         items={games}
+        sliderConfig={sliderConfigHero}
         renderItem={(game) => {
           const extra = extraHeroData.find((item) => item.gameId === game.id)
 

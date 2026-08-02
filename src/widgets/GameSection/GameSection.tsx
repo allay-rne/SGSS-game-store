@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import type {WithId} from "@/shared/types/entity.ts";
 import Button from "@/shared/ui/Button";
 import Slider from "@/shared/ui/Slider";
-import { sectionSliderParams } from "./model/sliderComfigSection.ts";
+import { sectionSliderParams } from "./model/sliderConfigSection.ts";
 import './GameSection.scss'
 
 interface GameSectionProps<T extends WithId> {

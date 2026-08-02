@@ -1,14 +1,15 @@
-import {
-  popularGameTitles,
-  newGameTitles,
-  horrorGameTitles
-} from "./model/gameLists";
 import useGamesList from "@/entities/game/model/useGamesList.ts";
 import GameCard from "@/shared/ui/GameCard";
 import MainSidebar from "@/widgets/MainSidebar";
 import Hero from "@/widgets/Hero";
 import GameSection from "@/widgets/GameSection";
 import TrustBadges from "@/widgets/TrustBadges";
+import PromoSale from "@/widgets/PromoSale";
+import {
+  popularGameTitles,
+  newGameTitles,
+  horrorGameTitles
+} from "./model/gameLists";
 import './Home.scss'
 
 const Home = () => {
@@ -60,6 +61,7 @@ const Home = () => {
         </div>
       </main>
       <div className="home__full-width">
+        <PromoSale />
         <TrustBadges />
       </div>
     </>

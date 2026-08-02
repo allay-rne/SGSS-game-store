@@ -1,0 +1,107 @@
+.promo-sale {
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--border-radius-m);
+    overflow: hidden;
+    padding: fluid(48, 24) fluid(56, 24);
+    padding-left: fluid(500, 64);
+    background-image: url('/src/shared/assets/images/PromoSale.webp');
+    background-size: cover;
+    background-position: center 43%;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 480px;
+  }
+
+  &__title {
+    font-size: var(--font-size-mini);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__sale {
+    font-size: clamp(20px, 1.5vw + 14px, 28px);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  &__description {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    margin: 0 0 8px;
+  }
+
+  &__btn {
+    align-self: flex-start;
+    width: fit-content;
+    padding: 12px 24px; // подставь свои паддинги под нужный размер
+  }
+
+  &__counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-right: 32px;
+
+    &-title {
+      font-size: var(--font-size-mini);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+
+    &-items {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 46px;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 44px;
+      font-weight: var(--font-weight-regular);
+      color: var(--color-accent);
+      min-width: 40px;
+      position: relative;
+
+      &:not(:last-child)::after {
+        content: ':';
+        position: absolute;
+        right: -12px;
+        top: -2px;
+        color: var(--color-text-secondary);
+      }
+
+      p {
+        font-size: var(--font-size-mini);
+        font-weight: var(--font-weight-regular);
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        margin: 0;
+      }
+    }
+  }
+}

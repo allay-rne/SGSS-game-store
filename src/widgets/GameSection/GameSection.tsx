@@ -1,8 +1,10 @@
 import type {ReactNode} from "react";
 import classNames from 'classnames'
 import type {WithId} from "@/shared/types/entity.ts";
-import './GameSection.scss'
 import Button from "@/shared/ui/Button";
+import Slider from "@/shared/ui/Slider";
+import { sectionSliderParams } from "./model/sliderComfigSection.ts";
+import './GameSection.scss'
 
 interface GameSectionProps<T extends WithId> {
   className?: string;
@@ -34,16 +36,7 @@ const GameSection = <T extends WithId>(props: GameSectionProps<T>) => {
           href="/shop"
         />
         </div>
-        <div className="game-section__list">
-          {games.map((game) => (
-            <div
-              className="game-section__item"
-              key={game.id}
-            >
-              {renderItem(game)}
-            </div>
-          ))}
-        </div>
+        <Slider items={games} renderItem={renderItem} sliderConfig={sectionSliderParams}/>
       </div>
     </section>
   )

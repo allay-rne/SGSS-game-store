@@ -28,6 +28,7 @@ const GameCard = (props:GameCardProps) => {
             className="game-card__img-game"
             src={image}
             alt={title}
+            loading="lazy"
           />
           <h2 className="game-card__title">{title}</h2>
           <div className="game-card__price-wrap">

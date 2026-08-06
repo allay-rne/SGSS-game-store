@@ -37,7 +37,7 @@
     color: var(--color-icon);
 
     &:has(.button__icon:only-child) {
-      @include square(50px);
+      @include square(30px);
 
       .button__icon {
         --icon-size: #{fluid-to-laptop(36, 24)};

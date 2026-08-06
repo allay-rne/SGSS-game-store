@@ -1,8 +1,9 @@
 .view-toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px;
+  height: 44px;
+  padding: 6px;
+  gap: 8px;
   background: var(--color-surface-2);
   border: var(--border-width-s) solid var(--color-border);
   border-radius: var(--border-radius-s);
@@ -11,13 +12,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: var(--border-radius-xs);
+    background: transparent;
     border: var(--border-width-s) solid transparent;
     transition: border-color var(--transition-fast), background-color var(--transition-fast);
 
     .button__icon {
+      --icon-size: 18px;
       color: var(--color-icon-muted);
       transition: color var(--transition-fast);
     }

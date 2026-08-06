@@ -16,12 +16,16 @@ const ViewToggle = (props: ViewToggleProps) => {
       className={classNames(className, 'view-toggle')}
     >
       <Button
+        className="view-toggle__btn view-toggle__btn--active"
+        mode="transparent"
         label="Grid View"
         isLabelHidden
         iconName="grid"
         iconPosition="before"
         />
       <Button
+        className="view-toggle__btn"
+        mode="transparent"
         label="List View"
         isLabelHidden
         iconName="list"

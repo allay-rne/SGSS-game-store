@@ -1,0 +1,34 @@
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--color-surface-2);
+  border: var(--border-width-s) solid var(--color-border);
+  border-radius: var(--border-radius-s);
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--border-radius-xs);
+    border: var(--border-width-s) solid transparent;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+
+    .button__icon {
+      color: var(--color-icon-muted);
+      transition: color var(--transition-fast);
+    }
+
+    &--active {
+      border-color: var(--color-primary);
+      background: var(--color-filter-active-bg);
+
+      .button__icon {
+        color: var(--color-primary-light);
+      }
+    }
+  }
+}

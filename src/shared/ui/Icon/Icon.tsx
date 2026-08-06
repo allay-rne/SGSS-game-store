@@ -44,6 +44,8 @@ import ShieldTryIcon from '@/shared/assets/icons/shield.svg?react';
 import TagIcon from '@/shared/assets/icons/tag.svg?react';
 import GiftIcon from '@/shared/assets/icons/gift.svg?react';
 import HeadSetIcon from '@/shared/assets/icons/headset.svg?react';
+import GridIcon from '@/shared/assets/icons/grid.svg?react';
+import ListIcon from '@/shared/assets/icons/list.svg?react';
 
 import './Icon.scss'
 
@@ -101,6 +103,9 @@ const icon = {
   tag: TagIcon,
   gift: GiftIcon,
   headSet: HeadSetIcon,
+  //ViewToggle
+  grid: GridIcon,
+  list: ListIcon,
 }
 
 export type IconName = keyof typeof icon;

@@ -10,14 +10,27 @@ import {
   newGameTitles,
   horrorGameTitles
 } from "./model/gameLists";
+import {
+  fallbackPopular,
+  fallbackNewReleases,
+  fallbackHorror
+} from "@/entities/game/model/fallbackGames.ts";
 import './Home.scss'
 
 const Home = () => {
-  const allGames = useGamesList();
+  const { games: allGames, isFallback } = useGamesList();
 
-  const popularGames = allGames.filter((game) => popularGameTitles.includes(game.name));
-  const newGames = allGames.filter((game) => newGameTitles.includes(game.name));
-  const horrorGames = allGames.filter((game) => horrorGameTitles.includes(game.name));
+  const popularGames = isFallback
+    ? fallbackPopular
+    : allGames.filter((game) => popularGameTitles.includes(game.name));
+
+  const newGames = isFallback
+    ? fallbackNewReleases
+    : allGames.filter((game) => newGameTitles.includes(game.name));
+
+  const horrorGames = isFallback
+    ? fallbackHorror
+    : allGames.filter((game) => horrorGameTitles.includes(game.name));
 
   return (
     <>

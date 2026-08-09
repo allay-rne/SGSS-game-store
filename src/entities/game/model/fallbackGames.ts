@@ -123,3 +123,38 @@ export const fallbackGames: Game[] = [
     background_image: wukong
   },
 ]
+
+export const fallbackPopular = fallbackGames.filter((game) =>
+  [
+    'Counter-Strike 2',
+    'Dota 2',
+    'Grand Theft Auto VI',
+    'The Witcher 3: Wild Hunt',
+    'Black Myth: Wukong',
+    'God of War Ragnarök',
+  ].includes(game.name)
+)
+
+export const fallbackNewReleases = fallbackGames.filter((game) =>
+  [
+    'Dispatch',
+    'Crysis 2',
+    'Dying Light',
+    'Beyond: Two Souls',
+    'Life Is Strange',
+    'Dark Souls',
+  ].includes(game.name)
+)
+
+export const fallbackHorror = fallbackGames.filter((game) =>
+  [
+    "Five Nights at Freddy's 4",
+    'Little Nightmares',
+    "No, I'm not a Human",
+    'Poppy Playtime',
+    'Reanimal',
+    'Resident Evil',
+    'Sally Face',
+    'Tiny Bunny',
+  ].includes(game.name)
+)

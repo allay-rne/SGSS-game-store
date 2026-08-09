@@ -2,10 +2,21 @@ import { useEffect, useState } from "react"
 import type { Game } from "@/entities/game/types/game.ts"
 import { getGames } from "@/entities/game/api/gameApi"
 import { extraHeroData } from "@/widgets/Hero/model/extraHero"
+import { fallbackGames } from "@/entities/game/model/fallbackGames.ts"
 import {sliderConfigHero} from "@/widgets/Hero/model/sliderConfigHero.ts";
 import Slider from "@/shared/ui/Slider"
 import Button from "@/shared/ui/Button"
 import './Hero.scss'
+
+const allowedFallbackTitles = [
+  'Beyond: Two Souls',
+  'Crysis 2',
+  'Dark Souls',
+  "Five Nights at Freddy's 4",
+  'God of War Ragnarök',
+  'Life Is Strange',
+  'Black Myth: Wukong',
+]
 
 const Hero = () => {
   const [games, setGames] = useState<Game[]>([])
@@ -23,11 +34,19 @@ const Hero = () => {
     ]
 
     const fetchGames = async () => {
-      const data = await getGames(1)
-      const filtered = data.results.filter((game) =>
-        allowedGameTitles.includes(game.name)
-      )
-      setGames(filtered)
+      try {
+        const data = await getGames(1)
+        const filtered = data.results.filter((game) =>
+          allowedGameTitles.includes(game.name)
+        )
+        setGames(filtered)
+      } catch (error) {
+        console.error('Failed to load Hero games from RAWG, using fallback:', error)
+        const filteredFallback = fallbackGames.filter((game) =>
+          allowedFallbackTitles.includes(game.name)
+        )
+        setGames(filteredFallback)
+      }
     }
 
     fetchGames()

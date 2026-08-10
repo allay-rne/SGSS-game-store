@@ -1,8 +1,7 @@
 import ShopSidebar from "@/widgets/ShopSidebar";
 import PromoSale from "@/widgets/PromoSale";
-import './Shop.scss'
 import ShopCatalog from "@/widgets/ShopCatalog";
-
+import './Shop.scss'
 
 const Shop = () => {
 

@@ -46,10 +46,16 @@ import GiftIcon from '@/shared/assets/icons/gift.svg?react';
 import HeadSetIcon from '@/shared/assets/icons/headset.svg?react';
 import GridIcon from '@/shared/assets/icons/grid.svg?react';
 import ListIcon from '@/shared/assets/icons/list.svg?react';
+import ArrowLeftIcon from '@/shared/assets/icons/arrowLeft.svg?react';
+
 
 import './Icon.scss'
 
 const icon = {
+  //general
+  heart: HeartIcon,
+  arrowRight: ArrowRightIcon,
+  arrowLeft: ArrowLeftIcon,
   //social
   gmail: GmailIcon,
   telegram: TelegramIcon,
@@ -78,7 +84,6 @@ const icon = {
   gamepad: GamepadIcon,
   vr: VRIcon,
   //sidebar main quick access
-  heart: HeartIcon,
   update: UpdateIcon,
   downloadGame: DownloadGameIcon,
   historyClock: HistoryClockIcon,
@@ -97,7 +102,6 @@ const icon = {
   up: UpIcon,
   dollar: DollarIcon,
   //GameCard
-  arrowRight: ArrowRightIcon,
   //trustBadges
   shieldTry: ShieldTryIcon,
   tag: TagIcon,

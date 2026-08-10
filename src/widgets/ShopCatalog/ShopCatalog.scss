@@ -37,5 +37,49 @@
       color: var(--color-text);
     }
   }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &__pagination-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-s);
+    color: var(--color-icon-muted);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+
+    &:hover {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+    }
+  }
+
+  &__pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-s);
+    color: var(--color-text-secondary);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+
+    &:hover {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+    }
+
+    &--active {
+      background: var(--color-primary);
+      color: var(--color-text);
+    }
+  }
 }
 

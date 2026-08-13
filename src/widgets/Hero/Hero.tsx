@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ButtonFavorite from "@/features/favorite/ui/ButtonFavorite";
 import type { Game } from "@/entities/game/types/game.ts"
 import { getGames } from "@/entities/game/api/gameApi"
 import { extraHeroData } from "@/widgets/Hero/model/extraHero"
@@ -74,12 +75,7 @@ const Hero = () => {
               </p>
               <div className="hero__active">
                 <Button label="Buy" />
-                <Button
-                  label="Favorite"
-                  isLabelHidden
-                  iconName="heart"
-                  iconPosition="before"
-                />
+                <ButtonFavorite gameId={game.id} />
               </div>
             </div>
           )

@@ -79,6 +79,7 @@ const ShopCatalog = (props: ShopCatalogProp) => {
                 image={game.background_image}
                 price={999}
                 layout="grid"
+                id={game.id}
               />
             )}
           />
@@ -90,6 +91,7 @@ const ShopCatalog = (props: ShopCatalogProp) => {
                 image={game.background_image}
                 price={999}
                 layout="list"
+                id={game.id}
               />
             )}
           />

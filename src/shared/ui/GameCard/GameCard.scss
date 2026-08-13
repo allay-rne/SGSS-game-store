@@ -76,6 +76,23 @@
     }
   }
 
+  &__favorite {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+
   &:hover {
     .game-card__inner {
       transform: perspective(600px) rotateX(4deg) scale(1.02);
@@ -128,6 +145,20 @@
 
     &:hover .game-card__img-game {
       transform: none;
+    }
+  }
+
+  &__favorite-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.08);
     }
   }
 }

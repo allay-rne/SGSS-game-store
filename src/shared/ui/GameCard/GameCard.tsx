@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import ButtonFavorite from "@/features/favorite/ui/ButtonFavorite";
 import './GameCard.scss'
 
 interface GameCardProps {
@@ -8,6 +9,7 @@ interface GameCardProps {
   oldPrice?: number;
   image: string;
   layout?: 'grid' | 'list';
+  id: number,
 }
 
 const GameCard = (props: GameCardProps) => {
@@ -18,6 +20,7 @@ const GameCard = (props: GameCardProps) => {
     oldPrice,
     image,
     layout = 'grid',
+    id,
   } = props
 
   const priceBlock = (
@@ -40,6 +43,9 @@ const GameCard = (props: GameCardProps) => {
         <div className="game-card__price-wrap">
           {priceBlock}
         </div>
+        <div className="game-card__favorite-list">
+          <ButtonFavorite gameId={id} />
+        </div>
       </div>
     )
   }
@@ -57,6 +63,9 @@ const GameCard = (props: GameCardProps) => {
           <h2 className="game-card__title">{title}</h2>
           <div className="game-card__price-wrap">
             {priceBlock}
+          </div>
+          <div className="game-card__favorite">
+            <ButtonFavorite gameId={id} />
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import VkIcon from '@/shared/assets/icons/vk.svg?react';
 import YoutubeIcon from '@/shared/assets/icons/youtube.svg?react';
 import HeartIcon from '@/shared/assets/icons/heart.svg?react';
 import UpdateIcon from '@/shared/assets/icons/update.svg?react';
+import HeartFilledIcon from '@/shared/assets/icons/heartFilled.svg?react';
 import DownloadGameIcon from '@/shared/assets/icons/downloadGame.svg?react';
 import HistoryClockIcon from '@/shared/assets/icons/historyClock.svg?react';
 import LightningIcon from '@/shared/assets/icons/lightning.svg?react';
@@ -54,6 +55,7 @@ import './Icon.scss'
 const icon = {
   //general
   heart: HeartIcon,
+  heartFilled: HeartFilledIcon,
   arrowRight: ArrowRightIcon,
   arrowLeft: ArrowLeftIcon,
   //social

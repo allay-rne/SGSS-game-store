@@ -43,6 +43,7 @@ const Home = () => {
             games={popularGames}
             renderItem={(game) => (
               <GameCard
+                id={game.id}
                 title={game.name}
                 image={game.background_image}
                 price={999}
@@ -54,6 +55,7 @@ const Home = () => {
             games={newGames}
             renderItem={(game) => (
               <GameCard
+                id={game.id}
                 title={game.name}
                 image={game.background_image}
                 price={999}
@@ -65,6 +67,7 @@ const Home = () => {
             games={horrorGames}
             renderItem={(game) => (
               <GameCard
+                id={game.id}
                 title={game.name}
                 image={game.background_image}
                 price={999}

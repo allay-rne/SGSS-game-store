@@ -77,9 +77,11 @@ const ShopCatalog = (props: ShopCatalogProp) => {
               <GameCard
                 title={game.name}
                 image={game.background_image}
-                price={999}
+                price={game.price}
+                oldPrice={game.oldPrice}
                 layout="grid"
                 id={game.id}
+                genres={game.genres}
               />
             )}
           />
@@ -89,9 +91,11 @@ const ShopCatalog = (props: ShopCatalogProp) => {
               <GameCard
                 title={game.name}
                 image={game.background_image}
-                price={999}
+                price={game.price}
+                oldPrice={game.oldPrice}
                 layout="list"
                 id={game.id}
+                genres={game.genres}
               />
             )}
           />

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import './Checkbox.scss'
 
 interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   count?: number;
 }
 

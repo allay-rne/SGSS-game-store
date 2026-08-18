@@ -10,6 +10,9 @@ import GameCard from "@/shared/ui/GameCard";
 import GameList from "@/shared/ui/GameList";
 import Checkbox from "@/shared/ui/Checkbox";
 import ViewToggle from "@/shared/ui/ViewToggle";
+import Dropdown from "@/shared/ui/Dropdown";
+import {wishlistSortOption} from "@/widgets/WishlistCatalog/lib/wishlistSortOptions.ts";
+import useWishlistSelection from "@/widgets/WishlistCatalog/model/useWishlistSelection.ts";
 import './WishlistCatalog.scss'
 
 interface WishlistCatalogProps {
@@ -23,6 +26,15 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
 
   const favoriteIds = useFavoriteStore(state => state.favoriteIds)
   const favoriteGames = getGamesByIds(fallbackGames, favoriteIds)
+  const clearFavorites = useFavoriteStore(state => state.clearFavorites)
+
+  const {
+    selectedCheckbox,
+    toggleItem,
+    isSelected,
+    selectAll,
+    isAllSelected,
+  } = useWishlistSelection(favoriteIds);
 
   const [view, setView] = useState<'grid'|'list'>('list')
 
@@ -49,13 +61,26 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
           label="Buy now"
           mode="transparent"
         />
-        <Button label="Clear list" />
+        <Button
+          label="Clear list"
+          onClick={clearFavorites}
+        />
       </div>
 
       <div className="wishlist-catalog__main">
         <div className="wishlist-catalog__main-actions">
-          <Checkbox label="Select all" />
+          <Checkbox
+            label="Select all"
+            checked={isAllSelected}
+            onChange={selectAll}
+          />
+          <div className="wishlist-catalog__right-action">
+            <Dropdown
+              className="wishlist-catalog__dropdown"
+              options={wishlistSortOption}
+            />
           <ViewToggle activeView={view} onChange={setView} />
+          </div>
         </div>
         {view === 'grid'
           ? <GameGrid
@@ -64,9 +89,13 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
               <GameCard
                 title={game.name}
                 image={game.background_image}
-                price={999}
+                price={game.price}
+                oldPrice={game.oldPrice}
                 layout="grid"
                 id={game.id}
+                checked={isSelected(game.id)}
+                onToggle={toggleItem}
+                genres={game.genres}
               />
             )}
           />
@@ -76,16 +105,20 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
               <GameCard
                 title={game.name}
                 image={game.background_image}
-                price={999}
+                price={game.price}
+                oldPrice={game.oldPrice}
                 layout="list"
                 id={game.id}
+                checked={isSelected(game.id)}
+                onToggle={toggleItem}
+                genres={game.genres}
               />
             )}
           />
         }
       </div>
 
-      <div className="wishlist-catalog__notification">
+      <div className="wishlist-catalog__notification hidden-tablet">
           <Icon name="heart" />
         <div className="wishlist-catalog__notification-subtitle">
           <h2>Can't decide?</h2>

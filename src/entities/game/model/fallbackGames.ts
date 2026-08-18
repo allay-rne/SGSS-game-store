@@ -6,10 +6,12 @@ import dispatch from '@/shared/assets/images/fallback/dispatch.webp'
 import dota2 from '@/shared/assets/images/fallback/dota2.webp'
 import dyingLight from '@/shared/assets/images/fallback/dyingLight.webp'
 import fnaf4 from '@/shared/assets/images/fallback/fnaf4.webp'
-import godOfWarRagnarok from '@/shared/assets/images/fallback/god of war ragnarok.webp'
+import godOfWarRagnarok
+  from '@/shared/assets/images/fallback/god of war ragnarok.webp'
 import gta6 from '@/shared/assets/images/fallback/gta6.webp'
 import lifeIsStrange from '@/shared/assets/images/fallback/lifeIsStrange.webp'
-import littleNightmares from '@/shared/assets/images/fallback/littleNightmares.webp'
+import littleNightmares
+  from '@/shared/assets/images/fallback/littleNightmares.webp'
 import noImNotAHuman from '@/shared/assets/images/fallback/noImNotAHuman.webp'
 import poppyPlayTime from '@/shared/assets/images/fallback/poppyPlayTime.webp'
 import reanimal from '@/shared/assets/images/fallback/reanimal.webp'
@@ -25,102 +27,147 @@ export const fallbackGames: Game[] = [
   {
     id: 1,
     name: 'Beyond: Two Souls',
-    background_image: beyondTwoSouls
+    background_image: beyondTwoSouls,
+    genres: ['Adventure'],
+    price: 11,
   },
   {
     id: 2,
     name: 'Crysis 2',
-    background_image: crysis2
+    background_image: crysis2,
+    genres: ['Action'],
+    price: 7,
+    oldPrice: 11,
   },
   {
     id: 3,
     name: 'Counter-Strike 2',
-    background_image: cs2
+    background_image: cs2,
+    genres: ['Action', 'Multiplayer'],
+    price: 10,
   },
   {
     id: 4,
     name: 'Dark Souls',
-    background_image: darkSouls
+    background_image: darkSouls,
+    genres: ['RPG', 'Action'],
+    price: 14,
   },
   {
     id: 5,
     name: 'Dispatch',
-    background_image: dispatch
+    background_image: dispatch,
+    genres: ['Adventure', 'Indie'],
+    price: 7,
   },
   {
     id: 6,
     name: 'Dota 2',
-    background_image: dota2
+    background_image: dota2,
+    genres: ['Strategy', 'Multiplayer'],
+    price: 3,
   },
   {
     id: 7,
     name: 'Dying Light',
-    background_image: dyingLight
+    background_image: dyingLight,
+    genres: ['Action', 'Horror'],
+    price: 9,
+    oldPrice: 15,
   },
   {
     id: 8,
     name: "Five Nights at Freddy's 4",
-    background_image: fnaf4
+    background_image: fnaf4,
+    genres: ['Horror', 'Indie'],
+    price: 6,
   },
   {
     id: 9,
     name: 'God of War Ragnarök',
-    background_image: godOfWarRagnarok
+    background_image: godOfWarRagnarok,
+    genres: ['Action', 'RPG'],
+    price: 53,
   },
   {
     id: 10,
     name: 'Grand Theft Auto VI',
-    background_image: gta6
+    background_image: gta6,
+    genres: ['Action', 'Adventure'],
+    price: 112,
   },
   {
     id: 11,
     name: 'Life Is Strange',
-    background_image: lifeIsStrange
+    background_image: lifeIsStrange,
+    genres: ['Adventure'],
+    price: 8,
   },
   {
     id: 12,
     name: 'Little Nightmares',
-    background_image: littleNightmares
+    background_image: littleNightmares,
+    genres: ['Horror', 'Indie'],
+    price: 9,
+    oldPrice: 18,
   },
   {
     id: 13,
     name: "No, I'm not a Human",
-    background_image: noImNotAHuman
+    background_image: noImNotAHuman,
+    genres: ['Horror', 'Indie'],
+    price: 5,
   },
   {
     id: 14,
     name: 'Poppy Playtime',
-    background_image: poppyPlayTime
+    background_image: poppyPlayTime,
+    genres: ['Horror', 'Indie'],
+    price: 7,
   },
   {
     id: 15,
     name: 'Reanimal',
-    background_image: reanimal
+    background_image: reanimal,
+    genres: ['Horror', 'Indie'],
+    price: 12,
   },
   {
     id: 16,
     name: 'Resident Evil',
-    background_image: residentEvil
+    background_image: residentEvil,
+    genres: ['Horror', 'Action'],
+    price: 16,
+    oldPrice: 19,
   },
   {
     id: 17,
     name: 'Sally Face',
-    background_image: sallyFace
+    background_image: sallyFace,
+    genres: ['Horror', 'Indie'],
+    price: 399
   },
   {
     id: 18,
     name: 'Tiny Bunny',
-    background_image: tinyBunny
+    background_image: tinyBunny,
+    genres: ['Horror', 'Indie'],
+    price: 5,
   },
   {
     id: 19,
     name: 'The Witcher 3: Wild Hunt',
-    background_image: witcher
+    background_image: witcher,
+    genres: ['RPG', 'Adventure'],
+    price: 10,
+    oldPrice: 17,
   },
   {
     id: 20,
     name: 'Black Myth: Wukong',
-    background_image: wukong
+    background_image: wukong,
+    genres: ['RPG', 'Action'],
+    price: 35,
   },
 ]
 

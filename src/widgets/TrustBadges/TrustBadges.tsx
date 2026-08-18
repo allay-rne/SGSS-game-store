@@ -1,6 +1,6 @@
 import {trustItems} from "@/widgets/TrustBadges/model/trustItems.ts";
-import './TrustBadges.scss'
 import Icon from "@/shared/ui/Icon";
+import './TrustBadges.scss'
 
 const TrustBadges = () => {
 

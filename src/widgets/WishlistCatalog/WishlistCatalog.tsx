@@ -38,6 +38,12 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
 
   const [view, setView] = useState<'grid'|'list'>('list')
 
+  const [notificationsOn, setNotificationsOn] = useState<boolean>(false);
+
+  const toggleNotifications = () => {
+    setNotificationsOn(prev => !prev);
+  };
+
   return (
     <section
       className={classNames(className, 'wishlist-catalog')}
@@ -125,9 +131,10 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
           <p>Keep an eye on discounts for games on your wishlist and get notified about price drops.</p>
         </div>
         <Button
-          label="Turn on notifications"
-          iconName="bell"
-          iconPosition="before"
+        label={notificationsOn ? "Notifications on" : "Turn on notifications"}
+        iconName={notificationsOn ? "bellCheck" : "bell"}
+        iconPosition="before"
+        onClick={toggleNotifications}
         />
       </div>
     </section>

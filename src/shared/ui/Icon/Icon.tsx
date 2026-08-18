@@ -48,7 +48,7 @@ import HeadSetIcon from '@/shared/assets/icons/headset.svg?react';
 import GridIcon from '@/shared/assets/icons/grid.svg?react';
 import ListIcon from '@/shared/assets/icons/list.svg?react';
 import ArrowLeftIcon from '@/shared/assets/icons/arrowLeft.svg?react';
-
+import BellCheckIcon from '@/shared/assets/icons/bell-check.svg?react';
 
 import './Icon.scss'
 
@@ -58,6 +58,7 @@ const icon = {
   heartFilled: HeartFilledIcon,
   arrowRight: ArrowRightIcon,
   arrowLeft: ArrowLeftIcon,
+  bellCheck: BellCheckIcon,
   //social
   gmail: GmailIcon,
   telegram: TelegramIcon,

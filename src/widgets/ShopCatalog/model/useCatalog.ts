@@ -6,7 +6,7 @@ const useCatalog = (games: Game[]) => {
   const [page, setPage] = useState(1)
 
 
-  const itemsPerPage = 6
+  const itemsPerPage = 9
   const totalPages = Math.ceil(games.length / itemsPerPage)
   const start = (page - 1) * itemsPerPage
   const paginatedGames = games.slice(start, start + itemsPerPage)

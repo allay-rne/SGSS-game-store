@@ -8,6 +8,7 @@ import GameList from "@/shared/ui/GameList";
 import GameGrid from "@/shared/ui/GameGrid";
 import {shopSortOption} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import useCatalog from "@/widgets/ShopCatalog/model/useCatalog.ts";
+import {getPageNumbers} from "@/widgets/ShopCatalog/lib/getPageNumbers.ts";
 import './ShopCatalog.scss'
 
 interface ShopCatalogProp {
@@ -27,6 +28,7 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     paginatedGames,
     goToNextPage,
     goToPrevPage,
+    totalPages,
   } = useCatalog(fallbackGames)
 
   return (
@@ -112,37 +114,21 @@ const ShopCatalog = (props: ShopCatalogProp) => {
             mode="transparent"
             onClick={goToPrevPage}
           />
-          <Button
-            className={classNames('shop-catalog__pagination-btn', {
-              'shop-catalog__pagination-btn--active': page === 1
-            })}
-            label="1"
-            mode="transparent"
-            onClick={() => setPage(1)}
-          />
-          <Button
-            className={classNames('shop-catalog__pagination-btn', {
-              'shop-catalog__pagination-btn--active': page === 2
-            })}            label="2"
-            mode="transparent"
-            onClick={() => setPage(2)}
-          />
-          <Button
-            className={classNames('shop-catalog__pagination-btn', {
-              'shop-catalog__pagination-btn--active': page === 3
-            })}
-            label="3"
-            mode="transparent"
-            onClick={() => setPage(3)}
-          />
-          <Button
-            className={classNames('shop-catalog__pagination-btn', {
-              'shop-catalog__pagination-btn--active': page === 4
-            })}
-            label="4"
-            mode="transparent"
-            onClick={() => setPage(4)}
-          />
+          {getPageNumbers(page, totalPages).map((item, i) =>
+            item === '...' ? (
+              <span key={`dots-${i}`} className="shop-catalog__pagination-dots">…</span>
+            ) : (
+              <Button
+                key={item}
+                className={classNames('shop-catalog__pagination-btn', {
+                  'shop-catalog__pagination-btn--active': page === item
+                })}
+                label={String(item)}
+                mode="transparent"
+                onClick={() => setPage(item)}
+              />
+            )
+          )}
 
           <Button
             className="shop-catalog__pagination-arrow"

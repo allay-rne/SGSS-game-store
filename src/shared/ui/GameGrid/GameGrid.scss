@@ -2,7 +2,7 @@
   &__inner {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3, minmax(0, 400px));
+    grid-template-columns: repeat(3, minmax(0, 450px));
     gap: 24px;
 
     .game-card:hover {

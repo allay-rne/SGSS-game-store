@@ -17,8 +17,7 @@ const useWishlistSelection = (allIds: number[]) => {
   };
 
   const isAllSelected = selectedCheckbox.size === allIds.length && allIds.length > 0;
-
-
+  
   const isSelected = (itemId: number) => {
     return selectedCheckbox.has(itemId);
   };

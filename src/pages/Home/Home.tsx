@@ -1,15 +1,9 @@
-import useGamesList from "@/entities/game/model/useGamesList.ts";
 import GameCard from "@/shared/ui/GameCard";
 import MainSidebar from "@/widgets/MainSidebar";
 import Hero from "@/widgets/Hero";
 import GameSection from "@/widgets/GameSection";
 import TrustBadges from "@/widgets/TrustBadges";
 import PromoSale from "@/widgets/PromoSale";
-import {
-  popularGameTitles,
-  newGameTitles,
-  horrorGameTitles
-} from "./model/gameLists";
 import {
   fallbackPopular,
   fallbackNewReleases,
@@ -18,19 +12,6 @@ import {
 import './Home.scss'
 
 const Home = () => {
-  const { games: allGames, isFallback } = useGamesList();
-
-  const popularGames = isFallback
-    ? fallbackPopular
-    : allGames.filter((game) => popularGameTitles.includes(game.name));
-
-  const newGames = isFallback
-    ? fallbackNewReleases
-    : allGames.filter((game) => newGameTitles.includes(game.name));
-
-  const horrorGames = isFallback
-    ? fallbackHorror
-    : allGames.filter((game) => horrorGameTitles.includes(game.name));
 
   return (
     <>
@@ -40,37 +21,43 @@ const Home = () => {
           <Hero />
           <GameSection
             title="Popular"
-            games={popularGames}
+            games={fallbackPopular}
             renderItem={(game) => (
               <GameCard
                 id={game.id}
                 title={game.name}
                 image={game.background_image}
-                price={999}
+                price={game.price}
+                oldPrice={game.oldPrice}
+                genres={game.genres}
               />
             )}
           />
           <GameSection
             title="New Releases"
-            games={newGames}
+            games={fallbackNewReleases}
             renderItem={(game) => (
               <GameCard
                 id={game.id}
                 title={game.name}
                 image={game.background_image}
-                price={999}
+                price={game.price}
+                oldPrice={game.oldPrice}
+                genres={game.genres}
               />
             )}
           />
           <GameSection
             title="Horror"
-            games={horrorGames}
+            games={fallbackHorror}
             renderItem={(game) => (
               <GameCard
                 id={game.id}
                 title={game.name}
                 image={game.background_image}
-                price={999}
+                price={game.price}
+                oldPrice={game.oldPrice}
+                genres={game.genres}
               />
             )}
           />

@@ -13,7 +13,10 @@ import ViewToggle from "@/shared/ui/ViewToggle";
 import Dropdown from "@/shared/ui/Dropdown";
 import {wishlistSortOption} from "@/widgets/WishlistCatalog/lib/wishlistSortOptions.ts";
 import useWishlistSelection from "@/widgets/WishlistCatalog/model/useWishlistSelection.ts";
+import useWishlistSort
+  , {type SortOption} from "@/widgets/WishlistCatalog/model/useWishlistSort.ts";
 import './WishlistCatalog.scss'
+
 
 interface WishlistCatalogProps {
   className?: string;
@@ -24,9 +27,17 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
     className,
   } = props
 
+  const {
+    sort,
+    setSort,
+    sortGames,
+  } = useWishlistSort()
+
   const favoriteIds = useFavoriteStore(state => state.favoriteIds)
   const favoriteGames = getGamesByIds(fallbackGames, favoriteIds)
   const clearFavorites = useFavoriteStore(state => state.clearFavorites)
+
+  const sortedGames = sortGames(favoriteGames)
 
   const {
     selectedCheckbox,
@@ -84,13 +95,15 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
             <Dropdown
               className="wishlist-catalog__dropdown"
               options={wishlistSortOption}
+              value={sort}
+              onChange={(event) => setSort(event.target.value as SortOption)}
             />
           <ViewToggle activeView={view} onChange={setView} />
           </div>
         </div>
         {view === 'grid'
           ? <GameGrid
-            games={favoriteGames}
+            games={sortedGames}
             renderItem={(game) => (
               <GameCard
                 title={game.name}
@@ -106,7 +119,7 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
             )}
           />
           : <GameList
-            games={favoriteGames}
+            games={sortedGames}
             renderItem={(game) => (
               <GameCard
                 title={game.name}

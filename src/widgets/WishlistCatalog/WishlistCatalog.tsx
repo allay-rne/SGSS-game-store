@@ -77,6 +77,7 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
           className="wishlist-catalog__header-btn"
           label="Buy now"
           mode="transparent"
+          disabled={selectedCheckbox.size === 0}
         />
         <Button
           label="Clear list"

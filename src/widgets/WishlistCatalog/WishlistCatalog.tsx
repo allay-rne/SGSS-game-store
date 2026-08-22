@@ -73,6 +73,7 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
             <p>{favoriteGames.length} games</p>
           </div>
         </div>
+        <div className="wishlist-catalog__header-actions">
         <Button
           className="wishlist-catalog__header-btn"
           label="Buy now"
@@ -83,6 +84,7 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
           label="Clear list"
           onClick={clearFavorites}
         />
+        </div>
       </div>
 
       <div className="wishlist-catalog__main">

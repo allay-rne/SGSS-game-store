@@ -60,11 +60,13 @@ const GameCard = (props: GameCardProps) => {
           ))}
         </div>
         </div>
-        <div className="game-card__price-wrap">
-          {priceBlock}
-        </div>
-        <div className="game-card__favorite-list">
-          <ButtonFavorite gameId={id} />
+        <div className="game-card__bottom-list">
+          <div className="game-card__price-wrap">
+            {priceBlock}
+          </div>
+          <div className="game-card__favorite-list">
+            <ButtonFavorite gameId={id} />
+          </div>
         </div>
       </div>
     )

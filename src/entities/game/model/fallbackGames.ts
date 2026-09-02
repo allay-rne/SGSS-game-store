@@ -188,8 +188,8 @@ export const fallbackGames: Game[] = [
     name: 'Sally Face',
     background_image: sallyFace,
     genres: ['Horror', 'Indie'],
-    price: 6
-  }, // была опечатка price:399, поправил
+    price: 7
+  },
   {
     id: 18,
     name: 'Tiny Bunny',

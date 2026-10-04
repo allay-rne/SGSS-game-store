@@ -27,10 +27,11 @@ const Shop = () => {
         <ShopSidebar
           onToggle={toggleGenre}
           selectedGenres={selectedGenres}
-
         />
         <div className="shop__content">
-          <ShopCatalog />
+          <ShopCatalog
+            selectedGenres={selectedGenres}
+          />
         </div>
       </main>
       <div className="shop__full-width">

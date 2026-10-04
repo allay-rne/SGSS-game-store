@@ -1,12 +1,16 @@
-import {useState} from "react";
-import type {Game} from "@/entities/game/types/game.ts";
+import {useEffect, useState} from "react";
+import type {Game, Genre} from "@/entities/game/types/game.ts";
 
-const useCatalog = (games: Game[]) => {
+const useCatalog = (games: Game[], selectedGenres: Set<Genre>) => {
   const [view, setView] = useState<'grid' | 'list'>('grid')
   const [page, setPage] = useState(1)
 
+  useEffect(() => {
+    setPage(1)
+  }, [selectedGenres])
 
   const itemsPerPage = 9
+
   const totalPages = Math.ceil(games.length / itemsPerPage)
   const start = (page - 1) * itemsPerPage
   const paginatedGames = games.slice(start, start + itemsPerPage)

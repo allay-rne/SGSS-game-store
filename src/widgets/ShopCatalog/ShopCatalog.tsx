@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import {fallbackGames} from "@/entities/game/model/fallbackGames.ts";
+import type {Genre} from "@/entities/game/types/game.ts";
 import Button from "@/shared/ui/Button";
 import Dropdown from "@/shared/ui/Dropdown";
 import ViewToggle from "@/shared/ui/ViewToggle";
@@ -13,12 +14,19 @@ import './ShopCatalog.scss'
 
 interface ShopCatalogProp {
   className?: string,
+  selectedGenres: Set<Genre>,
 }
 
 const ShopCatalog = (props: ShopCatalogProp) => {
   const {
     className,
+    selectedGenres,
   } = props
+
+  const filteredGames = fallbackGames.filter(game =>
+    selectedGenres.size === 0 ||
+    game.genres.some(genre => selectedGenres.has(genre))
+  )
 
   const {
     view,
@@ -29,7 +37,7 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     goToNextPage,
     goToPrevPage,
     totalPages,
-  } = useCatalog(fallbackGames)
+  } = useCatalog(filteredGames, selectedGenres)
 
   return (
     <section

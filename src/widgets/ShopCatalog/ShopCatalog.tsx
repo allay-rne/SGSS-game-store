@@ -12,6 +12,8 @@ import {shopSortOption} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import useCatalog from "@/widgets/ShopCatalog/model/useCatalog.ts";
 import {getPageNumbers} from "@/widgets/ShopCatalog/lib/getPageNumbers.ts";
 import {matchesPrice} from "@/widgets/ShopCatalog/lib/priceFilter.ts";
+import {matchesDiscount} from "@/widgets/ShopCatalog/lib/discountFilter.ts";
+
 import './ShopCatalog.scss'
 
 
@@ -21,6 +23,7 @@ interface ShopCatalogProp {
   selectedPrice: string,
   page: number,
   setPage: Dispatch<SetStateAction<number>>,
+  selectedDiscount: string,
 }
 
 const ShopCatalog = (props: ShopCatalogProp) => {
@@ -30,6 +33,7 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     selectedPrice,
     page,
     setPage,
+    selectedDiscount,
   } = props
 
   const filteredGames = fallbackGames.filter(game =>
@@ -37,7 +41,7 @@ const ShopCatalog = (props: ShopCatalogProp) => {
       selectedGenres.size === 0 ||
       game.genres.some(genre => selectedGenres.has(genre))
     ) &&
-    matchesPrice(game.price, selectedPrice)
+    matchesPrice(game.price, selectedPrice) && matchesDiscount(game, selectedDiscount)
   )
 
   const {

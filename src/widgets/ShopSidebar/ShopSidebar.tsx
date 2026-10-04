@@ -14,6 +14,8 @@ interface ShopSidebarProps {
   onToggleGenre: (genre: Genre) => void,
   selectedPrice: string,
   onSelectPrice: (value: string) => void,
+  selectedDiscount: string,
+  onSelectDiscount: (value: string) => void,
 }
 
 const ShopSidebar = (props: ShopSidebarProps) => {
@@ -23,13 +25,13 @@ const ShopSidebar = (props: ShopSidebarProps) => {
     onToggleGenre,
     selectedPrice,
     onSelectPrice,
+    selectedDiscount,
+    onSelectDiscount,
   } = props
 
   const genresGroup = sidebarShopItems.find((group) => group.title === "GENRES")
   const priceGroup = sidebarShopItems.find((group) => group.title === "PRICE")
   const discountGroup = sidebarShopItems.find((group) => group.title === "DISCOUNTS")
-  const platformGroup = sidebarShopItems.find((group) => group.title === "PLATFORM")
-  const featuresGroup = sidebarShopItems.find((group) => group.title === "FEATURES")
 
   return (
     <aside className={classNames(className, 'shop-sidebar hidden-mobile')}>
@@ -92,15 +94,13 @@ const ShopSidebar = (props: ShopSidebarProps) => {
         </div>
 
         <div className="shop-sidebar__discounts">
-          {discountGroup && <FilterGroup group={discountGroup} />}
-        </div>
-
-        <div className="shop-sidebar__platform">
-          {platformGroup && <FilterGroup group={platformGroup} />}
-        </div>
-
-        <div className="shop-sidebar__features">
-          {featuresGroup && <FilterGroup group={featuresGroup} />}
+          {discountGroup && (
+            <FilterGroup
+              group={discountGroup}
+              selectedValues={new Set([selectedDiscount])}
+              onToggle={onSelectDiscount}
+            />
+          )}
         </div>
 
         <div className="shop-sidebar__sort">

@@ -5,7 +5,10 @@ import Input from "@/shared/ui/Input";
 import Dropdown from "@/shared/ui/Dropdown";
 import FilterGroup from "@/widgets/ShopSidebar/ui/FilterGroup";
 import {sidebarShopItems} from "@/widgets/ShopSidebar/lib/sidebarShopItems.ts";
-import {shopSortOption} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
+import {
+  shopSortOption,
+  type ShopSortValue
+} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import './ShopSidebar.scss'
 
 interface ShopSidebarProps {
@@ -20,6 +23,8 @@ interface ShopSidebarProps {
   priceTo: string,
   onChangePriceFrom: (value: string) => void,
   onChangePriceTo: (value: string) => void,
+  sort: ShopSortValue,
+  onChangeSort: (value: ShopSortValue) => void,
 }
 
 const ShopSidebar = (props: ShopSidebarProps) => {
@@ -35,6 +40,8 @@ const ShopSidebar = (props: ShopSidebarProps) => {
     priceTo,
     onChangePriceFrom,
     onChangePriceTo,
+    sort,
+    onChangeSort,
   } = props
 
   const genresGroup = sidebarShopItems.find((group) => group.title === "GENRES")
@@ -119,6 +126,8 @@ const ShopSidebar = (props: ShopSidebarProps) => {
           <p>SORTING</p>
           <Dropdown
             options={shopSortOption}
+            value={sort}
+            onChange={(event) => onChangeSort(event.target.value as ShopSortValue)}
           />
         </div>
       </div>

@@ -15,8 +15,6 @@ export const shopSortOption: ShopSortOptions = [
     title: "Price: High to Low",
     value: "price-high-to-low",
   },
-  {
-    title: "Best Sellers",
-    value: "best-sellers",
-  },
 ]
+
+export type ShopSortValue = 'popular' | 'price-low-to-high' | 'price-high-to-low'

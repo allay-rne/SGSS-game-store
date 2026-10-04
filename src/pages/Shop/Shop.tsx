@@ -3,7 +3,9 @@ import type {Genre} from "@/entities/game/types/game.ts";
 import ShopSidebar from "@/widgets/ShopSidebar";
 import PromoSale from "@/widgets/PromoSale";
 import ShopCatalog from "@/widgets/ShopCatalog";
+import type {ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import './Shop.scss'
+
 
 const Shop = () => {
 
@@ -13,7 +15,7 @@ const Shop = () => {
   const [selectedDiscount, setSelectedDiscount] = useState<string>('all-games');
   const [priceFrom, setPriceFrom] = useState<string>('');
   const [priceTo, setPriceTo] = useState<string>('');
-
+  const [sort, setSort] = useState<ShopSortValue>('popular');
 
   const toggleGenre = (genre: Genre) => {
     setPage(1)
@@ -27,7 +29,6 @@ const Shop = () => {
       return next;
     });
   };
-
   const selectPrice = (value: string) => {
     setPage(1)
     setSelectedPrice(prev => (prev === value ? "any-price" : value))
@@ -48,6 +49,10 @@ const Shop = () => {
     setPriceTo(value)
     setSelectedPrice('any-price')
   }
+  const changeSort = (value: ShopSortValue) => {
+    setPage(1)
+    setSort(value)
+  }
 
   return (
     <>
@@ -63,6 +68,8 @@ const Shop = () => {
           priceTo={priceTo}
           onChangePriceFrom={changePriceFrom}
           onChangePriceTo={changePriceTo}
+          sort={sort}
+          onChangeSort={changeSort}
         />
         <div className="shop__content">
           <ShopCatalog
@@ -73,6 +80,8 @@ const Shop = () => {
             selectedDiscount={selectedDiscount}
             priceFrom={priceFrom}
             priceTo={priceTo}
+            sort={sort}
+            onChangeSort={changeSort}
           />
         </div>
       </main>

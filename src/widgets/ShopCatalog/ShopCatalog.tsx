@@ -16,7 +16,10 @@ import {
   matchesPriceRange
 } from "@/widgets/ShopCatalog/lib/priceFilter.ts";
 import {matchesDiscount} from "@/widgets/ShopCatalog/lib/discountFilter.ts";
+import {sortGames} from "@/widgets/ShopCatalog/lib/sortGames.ts";
+import type {ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import './ShopCatalog.scss'
+
 
 
 interface ShopCatalogProp {
@@ -28,6 +31,8 @@ interface ShopCatalogProp {
   selectedDiscount: string,
   priceFrom: string,
   priceTo: string,
+  sort: ShopSortValue,
+  onChangeSort: (value: ShopSortValue) => void,
 }
 
 const ShopCatalog = (props: ShopCatalogProp) => {
@@ -40,6 +45,8 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     selectedDiscount,
     priceFrom,
     priceTo,
+    sort,
+    onChangeSort,
   } = props
 
   const filteredGames = fallbackGames.filter(game =>
@@ -49,6 +56,7 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     ) &&
     matchesPrice(game.price, selectedPrice) && matchesDiscount(game, selectedDiscount) && matchesPriceRange(game.price, priceFrom, priceTo)
   )
+  const sortedGames = sortGames(filteredGames, sort)
 
   const {
     view,
@@ -57,7 +65,9 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     goToNextPage,
     goToPrevPage,
     totalPages,
-  } = useCatalog(filteredGames, page, setPage)
+  } = useCatalog(sortedGames, page, setPage)
+
+
 
   return (
     <section
@@ -82,7 +92,11 @@ const ShopCatalog = (props: ShopCatalogProp) => {
           />
         </div>
         <div className="shop-catalog__header-controls">
-          <Dropdown options={shopSortOption} />
+          <Dropdown
+            options={shopSortOption}
+            value={sort}
+            onChange={(event) => onChangeSort(event.target.value as ShopSortValue)}
+          />
           <ViewToggle
             activeView={view}
             onChange={setView}

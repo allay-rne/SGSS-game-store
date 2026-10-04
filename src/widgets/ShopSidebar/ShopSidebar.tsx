@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import type {Genre} from "@/entities/game/types/game.ts";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import Dropdown from "@/shared/ui/Dropdown";
@@ -9,11 +10,15 @@ import './ShopSidebar.scss'
 
 interface ShopSidebarProps {
   className?: string,
+  selectedGenres: Set<Genre>,
+  onToggle: (genre: Genre) => void,
 }
 
 const ShopSidebar = (props: ShopSidebarProps) => {
   const {
     className,
+    selectedGenres,
+    onToggle,
   } = props
 
   const genresGroup = sidebarShopItems.find((group) => group.title === "GENRES")
@@ -45,7 +50,13 @@ const ShopSidebar = (props: ShopSidebarProps) => {
         </div>
 
         <div className="shop-sidebar__genres">
-          {genresGroup && <FilterGroup group={genresGroup} />}
+          {genresGroup && (
+            <FilterGroup
+              group={genresGroup}
+              selectedValues={selectedGenres}
+              onToggle={(value) => onToggle(value as Genre)}
+            />
+          )}
         </div>
 
         <div className="shop-sidebar__price">

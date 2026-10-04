@@ -1,7 +1,7 @@
 type SidebarShopItem = {
   title: string,
   count?: number,
-  value?: string,
+  value: string,
 }
 
 export type SidebarShopGroup = {
@@ -18,47 +18,47 @@ export const sidebarShopItems: SidebarShopItems = [
       {
         title: "Action",
         count: 128,
-        value: "action",
+        value: "Action"
       },
       {
         title: "RPG",
         count: 96,
-        value: "rpg",
+        value: "RPG"
       },
       {
         title: "Adventure",
         count: 84,
-        value: "adventure",
+        value: "Adventure"
       },
       {
         title: "Strategy",
         count: 84,
-        value: "strategy",
+        value: "Strategy"
       },
       {
         title: "Simulation",
         count: 67,
-        value: "simulation",
+        value: "Simulation"
       },
       {
         title: "Sports",
         count: 45,
-        value: "sports",
+        value: "Sports"
       },
       {
         title: "Racing",
         count: 32,
-        value: "racing",
+        value: "Racing"
       },
       {
         title: "Indie",
         count: 28,
-        value: "indie",
+        value: "Indie"
       },
       {
         title: "Horror",
         count: 112,
-        value: "horror",
+        value: "Horror"
       },
     ],
   },
@@ -81,7 +81,7 @@ export const sidebarShopItems: SidebarShopItems = [
         value: "upto-10",
       },
       {
-        title: "$10 – 30%",
+        title: "$10 – $30",
         count: 91,
         value: "10-30",
       },

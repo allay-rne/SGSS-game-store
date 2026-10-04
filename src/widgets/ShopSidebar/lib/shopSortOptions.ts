@@ -8,20 +8,12 @@ export const shopSortOption: ShopSortOptions = [
     value: "popular",
   },
   {
-    title: "New Releases",
-    value: "new-releases",
-  },
-  {
     title: "Price: Low to High",
     value: "price-low-to-high",
   },
   {
     title: "Price: High to Low",
     value: "price-high-to-low",
-  },
-  {
-    title: "Top Rated",
-    value: "top-rated",
   },
   {
     title: "Best Sellers",

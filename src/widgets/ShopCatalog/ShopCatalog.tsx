@@ -44,16 +44,6 @@ const ShopCatalog = (props: ShopCatalogProp) => {
           />
           <Button
             className="shop-catalog__btn"
-            label="New Releases"
-            mode='transparent'
-          />
-          <Button
-            className="shop-catalog__btn"
-            label="Coming Soon"
-            mode='transparent'
-          />
-          <Button
-            className="shop-catalog__btn"
             label="Popular"
             mode='transparent'
           />

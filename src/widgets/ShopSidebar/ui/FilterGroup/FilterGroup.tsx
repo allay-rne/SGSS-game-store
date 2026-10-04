@@ -1,19 +1,24 @@
+import {useState} from "react";
 import classNames from 'classnames'
 import Icon from "@/shared/ui/Icon";
 import Checkbox from "@/shared/ui/Checkbox";
 import type {SidebarShopGroup} from "@/widgets/ShopSidebar/lib/sidebarShopItems.ts";
 import './FilterGroup.scss'
-import {useState} from "react";
+
 
 interface FilterGroupProps {
   className?: string,
   group: SidebarShopGroup,
+  selectedValues?: Set<string>,
+  onToggle?: (value: string) => void,
 }
 
 const FilterGroup = (props:FilterGroupProps) => {
   const {
     className,
     group,
+    selectedValues,
+    onToggle,
   } = props
 
 
@@ -47,6 +52,8 @@ const FilterGroup = (props:FilterGroupProps) => {
               label={title}
               count={count}
               value={value}
+              checked={selectedValues?.has(value)}
+              onChange={() => onToggle?.(value)}
             />
           </li>
         ))}

@@ -16,6 +16,10 @@ interface ShopSidebarProps {
   onSelectPrice: (value: string) => void,
   selectedDiscount: string,
   onSelectDiscount: (value: string) => void,
+  priceFrom: string,
+  priceTo: string,
+  onChangePriceFrom: (value: string) => void,
+  onChangePriceTo: (value: string) => void,
 }
 
 const ShopSidebar = (props: ShopSidebarProps) => {
@@ -27,6 +31,10 @@ const ShopSidebar = (props: ShopSidebarProps) => {
     onSelectPrice,
     selectedDiscount,
     onSelectDiscount,
+    priceFrom,
+    priceTo,
+    onChangePriceFrom,
+    onChangePriceTo,
   } = props
 
   const genresGroup = sidebarShopItems.find((group) => group.title === "GENRES")
@@ -81,6 +89,8 @@ const ShopSidebar = (props: ShopSidebarProps) => {
               name="priceFrom"
               placeholder="From..."
               iconName="dollar"
+              value={priceFrom}
+              onChange={(event) => onChangePriceFrom(event.target.value)}
             />
 
             <Input
@@ -89,6 +99,8 @@ const ShopSidebar = (props: ShopSidebarProps) => {
               name="priceTo"
               placeholder="To..."
               iconName="dollar"
+              value={priceTo}
+              onChange={(event) => onChangePriceTo(event.target.value)}
             />
           </div>
         </div>

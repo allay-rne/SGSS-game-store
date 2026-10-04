@@ -14,3 +14,9 @@ export const matchesPrice = (price: number, value: string): boolean => {
       return true
   }
 }
+
+export const matchesPriceRange = (price: number, from: string, to: string): boolean => {
+  if (from !== '' && price < Number(from)) return false
+  if (to !== '' && price > Number(to)) return false
+  return true
+}

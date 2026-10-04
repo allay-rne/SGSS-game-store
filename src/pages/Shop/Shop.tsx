@@ -11,6 +11,8 @@ const Shop = () => {
   const [selectedGenres, setSelectedGenres] = useState<Set<Genre>>(new Set());
   const [selectedPrice, setSelectedPrice] = useState<string>('any-price');
   const [selectedDiscount, setSelectedDiscount] = useState<string>('all-games');
+  const [priceFrom, setPriceFrom] = useState<string>('');
+  const [priceTo, setPriceTo] = useState<string>('');
 
 
   const toggleGenre = (genre: Genre) => {
@@ -29,10 +31,22 @@ const Shop = () => {
   const selectPrice = (value: string) => {
     setPage(1)
     setSelectedPrice(prev => (prev === value ? "any-price" : value))
+    setPriceFrom('')
+    setPriceTo('')
   }
   const selectDiscount = (value: string) => {
     setPage(1)
     setSelectedDiscount(prev => (prev === value ? "all-games" : value))
+  }
+  const changePriceFrom = (value: string) => {
+    setPage(1)
+    setPriceFrom(value)
+    setSelectedPrice('any-price')
+  }
+  const changePriceTo = (value: string) => {
+    setPage(1)
+    setPriceTo(value)
+    setSelectedPrice('any-price')
   }
 
   return (
@@ -45,6 +59,10 @@ const Shop = () => {
           selectedPrice={selectedPrice}
           onSelectDiscount={selectDiscount}
           selectedDiscount={selectedDiscount}
+          priceFrom={priceFrom}
+          priceTo={priceTo}
+          onChangePriceFrom={changePriceFrom}
+          onChangePriceTo={changePriceTo}
         />
         <div className="shop__content">
           <ShopCatalog
@@ -53,6 +71,8 @@ const Shop = () => {
             selectedGenres={selectedGenres}
             selectedPrice={selectedPrice}
             selectedDiscount={selectedDiscount}
+            priceFrom={priceFrom}
+            priceTo={priceTo}
           />
         </div>
       </main>

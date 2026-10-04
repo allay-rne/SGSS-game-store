@@ -9,6 +9,9 @@ import {
   shopSortOption,
   type ShopSortValue
 } from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
+import {
+  getGroupWithCounts
+} from "@/widgets/ShopSidebar/lib/getGroupWithCounts.ts";
 import './ShopSidebar.scss'
 
 interface ShopSidebarProps {
@@ -50,9 +53,11 @@ const ShopSidebar = (props: ShopSidebarProps) => {
     onReset,
   } = props
 
-  const genresGroup = sidebarShopItems.find((group) => group.title === "GENRES")
-  const priceGroup = sidebarShopItems.find((group) => group.title === "PRICE")
-  const discountGroup = sidebarShopItems.find((group) => group.title === "DISCOUNTS")
+  const sidebarGroups = sidebarShopItems.map(getGroupWithCounts)
+  const genresGroup = sidebarGroups.find((group) => group.title === "GENRES")
+  const priceGroup = sidebarGroups.find((group) => group.title === "PRICE")
+  const discountGroup = sidebarGroups.find((group) => group.title === "DISCOUNTS")
+
 
   return (
     <aside className={classNames(className, 'shop-sidebar hidden-mobile')}>

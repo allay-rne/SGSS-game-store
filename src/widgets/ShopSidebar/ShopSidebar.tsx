@@ -27,6 +27,7 @@ interface ShopSidebarProps {
   onChangePriceTo: (value: string) => void,
   sort: ShopSortValue,
   onChangeSort: (value: ShopSortValue) => void,
+  onReset: () => void,
 }
 
 const ShopSidebar = (props: ShopSidebarProps) => {
@@ -46,6 +47,7 @@ const ShopSidebar = (props: ShopSidebarProps) => {
     onChangePriceTo,
     sort,
     onChangeSort,
+    onReset,
   } = props
 
   const genresGroup = sidebarShopItems.find((group) => group.title === "GENRES")
@@ -63,6 +65,7 @@ const ShopSidebar = (props: ShopSidebarProps) => {
               className="shop-sidebar__reset-btn"
               label="Reset all"
               mode="transparent"
+              onClick={onReset}
             />
           </div>
           <Input

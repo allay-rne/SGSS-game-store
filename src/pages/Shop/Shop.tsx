@@ -59,6 +59,17 @@ const Shop = () => {
     setSort(value)
   }
 
+  const resetAll = () => {
+    setPage(1)
+    setSearch('')
+    setSelectedGenres(new Set())
+    setSelectedPrice('any-price')
+    setSelectedDiscount('all-games')
+    setPriceFrom('')
+    setPriceTo('')
+    setSort('popular')
+  }
+
   return (
     <>
       <main className='shop'>
@@ -77,6 +88,7 @@ const Shop = () => {
           onChangePriceTo={changePriceTo}
           sort={sort}
           onChangeSort={changeSort}
+          onReset={resetAll}
         />
         <div className="shop__content">
           <ShopCatalog

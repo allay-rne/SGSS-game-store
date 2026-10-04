@@ -1,3 +1,4 @@
+import type {Dispatch, SetStateAction} from "react";
 import classNames from "classnames";
 import {fallbackGames} from "@/entities/game/model/fallbackGames.ts";
 import type {Genre} from "@/entities/game/types/game.ts";
@@ -10,34 +11,43 @@ import GameGrid from "@/shared/ui/GameGrid";
 import {shopSortOption} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import useCatalog from "@/widgets/ShopCatalog/model/useCatalog.ts";
 import {getPageNumbers} from "@/widgets/ShopCatalog/lib/getPageNumbers.ts";
+import {matchesPrice} from "@/widgets/ShopCatalog/lib/priceFilter.ts";
 import './ShopCatalog.scss'
+
 
 interface ShopCatalogProp {
   className?: string,
   selectedGenres: Set<Genre>,
+  selectedPrice: string,
+  page: number,
+  setPage: Dispatch<SetStateAction<number>>,
 }
 
 const ShopCatalog = (props: ShopCatalogProp) => {
   const {
     className,
     selectedGenres,
+    selectedPrice,
+    page,
+    setPage,
   } = props
 
   const filteredGames = fallbackGames.filter(game =>
-    selectedGenres.size === 0 ||
-    game.genres.some(genre => selectedGenres.has(genre))
+    (
+      selectedGenres.size === 0 ||
+      game.genres.some(genre => selectedGenres.has(genre))
+    ) &&
+    matchesPrice(game.price, selectedPrice)
   )
 
   const {
     view,
     setView,
-    page,
-    setPage,
     paginatedGames,
     goToNextPage,
     goToPrevPage,
     totalPages,
-  } = useCatalog(filteredGames, selectedGenres)
+  } = useCatalog(filteredGames, page, setPage)
 
   return (
     <section

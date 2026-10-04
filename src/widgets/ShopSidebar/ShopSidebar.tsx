@@ -11,14 +11,18 @@ import './ShopSidebar.scss'
 interface ShopSidebarProps {
   className?: string,
   selectedGenres: Set<Genre>,
-  onToggle: (genre: Genre) => void,
+  onToggleGenre: (genre: Genre) => void,
+  selectedPrice: string,
+  onSelectPrice: (value: string) => void,
 }
 
 const ShopSidebar = (props: ShopSidebarProps) => {
   const {
     className,
     selectedGenres,
-    onToggle,
+    onToggleGenre,
+    selectedPrice,
+    onSelectPrice,
   } = props
 
   const genresGroup = sidebarShopItems.find((group) => group.title === "GENRES")
@@ -54,13 +58,19 @@ const ShopSidebar = (props: ShopSidebarProps) => {
             <FilterGroup
               group={genresGroup}
               selectedValues={selectedGenres}
-              onToggle={(value) => onToggle(value as Genre)}
+              onToggle={(value) => onToggleGenre(value as Genre)}
             />
           )}
         </div>
 
         <div className="shop-sidebar__price">
-          {priceGroup && <FilterGroup group={priceGroup} />}
+          {priceGroup && (
+            <FilterGroup
+              group={priceGroup}
+              selectedValues={new Set([selectedPrice])}
+              onToggle={onSelectPrice}
+            />
+          )}
 
           <div className="shop-sidebar__price-search">
             <Input

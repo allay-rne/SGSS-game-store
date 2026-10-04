@@ -1,13 +1,8 @@
-import {useEffect, useState} from "react";
-import type {Game, Genre} from "@/entities/game/types/game.ts";
+import {type Dispatch, type SetStateAction, useState} from "react";
+import type {Game} from "@/entities/game/types/game.ts";
 
-const useCatalog = (games: Game[], selectedGenres: Set<Genre>) => {
+const useCatalog = (games: Game[], page: number, setPage: Dispatch<SetStateAction<number>>) => {
   const [view, setView] = useState<'grid' | 'list'>('grid')
-  const [page, setPage] = useState(1)
-
-  useEffect(() => {
-    setPage(1)
-  }, [selectedGenres])
 
   const itemsPerPage = 9
 
@@ -27,8 +22,6 @@ const useCatalog = (games: Game[], selectedGenres: Set<Genre>) => {
     {
       view,
       setView,
-      page,
-      setPage,
       paginatedGames,
       totalPages,
       goToNextPage,

@@ -7,9 +7,12 @@ import './Shop.scss'
 
 const Shop = () => {
 
+  const [page, setPage] = useState(1)
   const [selectedGenres, setSelectedGenres] = useState<Set<Genre>>(new Set());
+  const [selectedPrice, setSelectedPrice] = useState<string>('any-price');
 
   const toggleGenre = (genre: Genre) => {
+    setPage(1)
     setSelectedGenres(prev => {
       const next = new Set(prev);
       if (next.has(genre)) {
@@ -21,16 +24,26 @@ const Shop = () => {
     });
   };
 
+  const selectPrice = (value: string) => {
+    setPage(1)
+    setSelectedPrice(prev => (prev === value ? "any-price" : value))
+  }
+
   return (
     <>
       <main className='shop'>
         <ShopSidebar
-          onToggle={toggleGenre}
+          onToggleGenre={toggleGenre}
           selectedGenres={selectedGenres}
+          onSelectPrice={selectPrice}
+          selectedPrice={selectedPrice}
         />
         <div className="shop__content">
           <ShopCatalog
+            page={page}
+            setPage={setPage}
             selectedGenres={selectedGenres}
+            selectedPrice={selectedPrice}
           />
         </div>
       </main>

@@ -24,6 +24,7 @@ import './ShopCatalog.scss'
 
 interface ShopCatalogProp {
   className?: string,
+  search: string,
   selectedGenres: Set<Genre>,
   selectedPrice: string,
   page: number,
@@ -38,6 +39,7 @@ interface ShopCatalogProp {
 const ShopCatalog = (props: ShopCatalogProp) => {
   const {
     className,
+    search,
     selectedGenres,
     selectedPrice,
     page,
@@ -54,7 +56,10 @@ const ShopCatalog = (props: ShopCatalogProp) => {
       selectedGenres.size === 0 ||
       game.genres.some(genre => selectedGenres.has(genre))
     ) &&
-    matchesPrice(game.price, selectedPrice) && matchesDiscount(game, selectedDiscount) && matchesPriceRange(game.price, priceFrom, priceTo)
+    matchesPrice(game.price, selectedPrice)
+    && matchesDiscount(game, selectedDiscount)
+    && matchesPriceRange(game.price, priceFrom, priceTo)
+    && game.name.toLowerCase().includes(search.trim().toLowerCase())
   )
   const sortedGames = sortGames(filteredGames, sort)
 

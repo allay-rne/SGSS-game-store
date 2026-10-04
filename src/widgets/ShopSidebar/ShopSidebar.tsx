@@ -13,6 +13,8 @@ import './ShopSidebar.scss'
 
 interface ShopSidebarProps {
   className?: string,
+  search: string,
+  onChangeSearch: (value: string) => void,
   selectedGenres: Set<Genre>,
   onToggleGenre: (genre: Genre) => void,
   selectedPrice: string,
@@ -30,6 +32,8 @@ interface ShopSidebarProps {
 const ShopSidebar = (props: ShopSidebarProps) => {
   const {
     className,
+    search,
+    onChangeSearch,
     selectedGenres,
     onToggleGenre,
     selectedPrice,
@@ -65,8 +69,10 @@ const ShopSidebar = (props: ShopSidebarProps) => {
             className="shop-sidebar__input"
             type="text"
             name="search"
-            placeholder="Search by filters..."
+            placeholder="Search games..."
             iconName="search"
+            value={search}
+            onChange={(event) => onChangeSearch(event.target.value)}
           />
         </div>
 

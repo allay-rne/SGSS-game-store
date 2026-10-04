@@ -10,6 +10,7 @@ import './Shop.scss'
 const Shop = () => {
 
   const [page, setPage] = useState(1)
+  const [search, setSearch] = useState<string>('');
   const [selectedGenres, setSelectedGenres] = useState<Set<Genre>>(new Set());
   const [selectedPrice, setSelectedPrice] = useState<string>('any-price');
   const [selectedDiscount, setSelectedDiscount] = useState<string>('all-games');
@@ -29,6 +30,10 @@ const Shop = () => {
       return next;
     });
   };
+  const changeSearch = (value: string) => {
+    setPage(1)
+    setSearch(value)
+  }
   const selectPrice = (value: string) => {
     setPage(1)
     setSelectedPrice(prev => (prev === value ? "any-price" : value))
@@ -58,6 +63,8 @@ const Shop = () => {
     <>
       <main className='shop'>
         <ShopSidebar
+          search={search}
+          onChangeSearch={changeSearch}
           onToggleGenre={toggleGenre}
           selectedGenres={selectedGenres}
           onSelectPrice={selectPrice}
@@ -75,6 +82,7 @@ const Shop = () => {
           <ShopCatalog
             page={page}
             setPage={setPage}
+            search={search}
             selectedGenres={selectedGenres}
             selectedPrice={selectedPrice}
             selectedDiscount={selectedDiscount}

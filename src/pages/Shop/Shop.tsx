@@ -1,74 +1,32 @@
-import {useState} from "react";
-import type {Genre} from "@/entities/game/types/game.ts";
 import ShopSidebar from "@/widgets/ShopSidebar";
 import PromoSale from "@/widgets/PromoSale";
 import ShopCatalog from "@/widgets/ShopCatalog";
-import type {ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import './Shop.scss'
+import useShopFilters from "@/pages/Shop/model/useShopFilters.ts";
 
 
 const Shop = () => {
 
-  const [page, setPage] = useState(1)
-  const [search, setSearch] = useState<string>('');
-  const [selectedGenres, setSelectedGenres] = useState<Set<Genre>>(new Set());
-  const [selectedPrice, setSelectedPrice] = useState<string>('any-price');
-  const [selectedDiscount, setSelectedDiscount] = useState<string>('all-games');
-  const [priceFrom, setPriceFrom] = useState<string>('');
-  const [priceTo, setPriceTo] = useState<string>('');
-  const [sort, setSort] = useState<ShopSortValue>('popular');
-
-  const toggleGenre = (genre: Genre) => {
-    setPage(1)
-    setSelectedGenres(prev => {
-      const next = new Set(prev);
-      if (next.has(genre)) {
-        next.delete(genre);
-      } else {
-        next.add(genre);
-      }
-      return next;
-    });
-  };
-  const changeSearch = (value: string) => {
-    setPage(1)
-    setSearch(value)
-  }
-  const selectPrice = (value: string) => {
-    setPage(1)
-    setSelectedPrice(prev => (prev === value ? "any-price" : value))
-    setPriceFrom('')
-    setPriceTo('')
-  }
-  const selectDiscount = (value: string) => {
-    setPage(1)
-    setSelectedDiscount(prev => (prev === value ? "all-games" : value))
-  }
-  const changePriceFrom = (value: string) => {
-    setPage(1)
-    setPriceFrom(value)
-    setSelectedPrice('any-price')
-  }
-  const changePriceTo = (value: string) => {
-    setPage(1)
-    setPriceTo(value)
-    setSelectedPrice('any-price')
-  }
-  const changeSort = (value: ShopSortValue) => {
-    setPage(1)
-    setSort(value)
-  }
-
-  const resetAll = () => {
-    setPage(1)
-    setSearch('')
-    setSelectedGenres(new Set())
-    setSelectedPrice('any-price')
-    setSelectedDiscount('all-games')
-    setPriceFrom('')
-    setPriceTo('')
-    setSort('popular')
-  }
+ const
+   {
+     page,
+     setPage,
+     search,
+     selectedGenres,
+     selectedPrice,
+     selectedDiscount,
+     priceFrom,
+     priceTo,
+     sort,
+     toggleGenre,
+     changeSearch,
+     selectPrice,
+     selectDiscount,
+     changePriceFrom,
+     changePriceTo,
+     changeSort,
+     resetAll,
+   } = useShopFilters()
 
   return (
     <>

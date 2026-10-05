@@ -23,7 +23,6 @@ const FilterGroup = (props:FilterGroupProps) => {
 
 
   const [isOpen, setIsOpen] = useState(false)
-
   const handleClickOpen = () => {
     setIsOpen(prev => !prev)
   }

@@ -36,7 +36,6 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
   const favoriteIds = useFavoriteStore(state => state.favoriteIds)
   const favoriteGames = getGamesByIds(fallbackGames, favoriteIds)
   const clearFavorites = useFavoriteStore(state => state.clearFavorites)
-
   const sortedGames = sortGames(favoriteGames)
 
   const {
@@ -48,9 +47,7 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
   } = useWishlistSelection(favoriteIds);
 
   const [view, setView] = useState<'grid'|'list'>('list')
-
   const [notificationsOn, setNotificationsOn] = useState<boolean>(false);
-
   const toggleNotifications = () => {
     setNotificationsOn(prev => !prev);
   };

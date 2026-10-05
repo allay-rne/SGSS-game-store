@@ -1,26 +1,19 @@
 import type {Dispatch, SetStateAction} from "react";
 import classNames from "classnames";
-import {fallbackGames} from "@/entities/game/model/fallbackGames.ts";
 import type {Genre} from "@/entities/game/types/game.ts";
+import {fallbackGames} from "@/entities/game/model/fallbackGames.ts";
 import Button from "@/shared/ui/Button";
 import Dropdown from "@/shared/ui/Dropdown";
 import ViewToggle from "@/shared/ui/ViewToggle";
 import GameCard from "@/shared/ui/GameCard";
 import GameList from "@/shared/ui/GameList";
 import GameGrid from "@/shared/ui/GameGrid";
-import {shopSortOption} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
+import  {shopSortOption, type ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import useCatalog from "@/widgets/ShopCatalog/model/useCatalog.ts";
 import {getPageNumbers} from "@/widgets/ShopCatalog/lib/getPageNumbers.ts";
-import {
-  matchesPrice,
-  matchesPriceRange
-} from "@/widgets/ShopCatalog/lib/priceFilter.ts";
-import {matchesDiscount} from "@/widgets/ShopCatalog/lib/discountFilter.ts";
+import {filterGames} from "@/widgets/ShopCatalog/lib/filterGames.ts";
 import {sortGames} from "@/widgets/ShopCatalog/lib/sortGames.ts";
-import type {ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import './ShopCatalog.scss'
-
-
 
 interface ShopCatalogProp {
   className?: string,
@@ -51,16 +44,16 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     onChangeSort,
   } = props
 
-  const filteredGames = fallbackGames.filter(game =>
-    (
-      selectedGenres.size === 0 ||
-      game.genres.some(genre => selectedGenres.has(genre))
-    ) &&
-    matchesPrice(game.price, selectedPrice)
-    && matchesDiscount(game, selectedDiscount)
-    && matchesPriceRange(game.price, priceFrom, priceTo)
-    && game.name.toLowerCase().includes(search.trim().toLowerCase())
-  )
+  const filteredGames = filterGames({
+    games: fallbackGames,
+    search,
+    selectedGenres,
+    selectedPrice,
+    selectedDiscount,
+    priceFrom,
+    priceTo,
+  })
+
   const sortedGames = sortGames(filteredGames, sort)
 
   const {
@@ -71,8 +64,6 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     goToPrevPage,
     totalPages,
   } = useCatalog(sortedGames, page, setPage)
-
-
 
   return (
     <section

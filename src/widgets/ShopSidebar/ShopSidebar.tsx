@@ -5,13 +5,8 @@ import Input from "@/shared/ui/Input";
 import Dropdown from "@/shared/ui/Dropdown";
 import FilterGroup from "@/widgets/ShopSidebar/ui/FilterGroup";
 import {sidebarShopItems} from "@/widgets/ShopSidebar/lib/sidebarShopItems.ts";
-import {
-  shopSortOption,
-  type ShopSortValue
-} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
-import {
-  getGroupWithCounts
-} from "@/widgets/ShopSidebar/lib/getGroupWithCounts.ts";
+import {shopSortOption, type ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
+import {getGroupWithCounts} from "@/widgets/ShopSidebar/lib/getGroupWithCounts.ts";
 import './ShopSidebar.scss'
 
 interface ShopSidebarProps {

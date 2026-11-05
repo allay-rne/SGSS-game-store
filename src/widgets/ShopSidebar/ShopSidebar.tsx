@@ -9,6 +9,8 @@ import {shopSortOption, type ShopSortValue} from "@/widgets/ShopSidebar/lib/shop
 import {getGroupWithCounts} from "@/widgets/ShopSidebar/lib/getGroupWithCounts.ts";
 import './ShopSidebar.scss'
 
+const sidebarGroups = sidebarShopItems.map(getGroupWithCounts)
+
 interface ShopSidebarProps {
   className?: string,
   search: string,
@@ -48,7 +50,6 @@ const ShopSidebar = (props: ShopSidebarProps) => {
     onReset,
   } = props
 
-  const sidebarGroups = sidebarShopItems.map(getGroupWithCounts)
   const genresGroup = sidebarGroups.find((group) => group.title === "GENRES")
   const priceGroup = sidebarGroups.find((group) => group.title === "PRICE")
   const discountGroup = sidebarGroups.find((group) => group.title === "DISCOUNTS")

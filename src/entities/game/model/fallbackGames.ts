@@ -87,7 +87,7 @@ export const fallbackGames: Game[] = [
     name: 'Counter-Strike 2',
     background_image: cs2,
     genres: ['Action', 'Multiplayer'],
-    price: 10
+    price: 0
   },
   {
     id: 4,
@@ -108,7 +108,7 @@ export const fallbackGames: Game[] = [
     name: 'Dota 2',
     background_image: dota2,
     genres: ['Strategy', 'Multiplayer'],
-    price: 3
+    price: 0
   },
   {
     id: 7,

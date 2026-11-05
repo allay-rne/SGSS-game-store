@@ -34,7 +34,7 @@ const GameCard = (props: GameCardProps) => {
 
   const priceBlock = (
     <div className="game-card__price">
-      <p className="game-card__price-new">{`${price}$`}</p>
+      <p className="game-card__price-new">{price === 0 ? 'Free' : `${price}$`}</p>
       {oldPrice && (<p className="game-card__price-old">{`${oldPrice}$`}</p>)}
     </div>
   )

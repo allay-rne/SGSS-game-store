@@ -1,6 +1,6 @@
 import type {Game} from "@/entities/game/types/game.ts";
 
-const getDiscount = (game: Game): number => {
+export const getDiscount = (game: Game): number => {
   if (!game.oldPrice) return 0
   return (game.oldPrice - game.price) / game.oldPrice * 100
 }

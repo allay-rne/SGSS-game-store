@@ -1,6 +1,7 @@
 import {useState} from "react";
 import type {Genre} from "@/entities/game/types/game.ts";
 import type {ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
+import type {ShopTab} from "@/widgets/ShopCatalog/lib/shopTabs.ts";
 
 const useShopFilters = () => {
 
@@ -80,6 +81,20 @@ const useShopFilters = () => {
     })
   }
 
+  const selectTab = (tab: ShopTab) => {
+    resetAll()
+    if (tab === 'free') setSelectedPrice('free')
+    if (tab === 'top-sellers') {
+      setSelectedDiscount('on-sale')
+      setSort('discount-high-to-low')
+    }
+  }
+
+  const activeTab: ShopTab =
+    sort === 'discount-high-to-low' ? 'top-sellers'
+      : selectedPrice === 'free' ? 'free'
+        : 'all'
+
   return(
     {
       page,
@@ -99,6 +114,8 @@ const useShopFilters = () => {
       changePriceTo,
       changeSort,
       resetAll,
+      selectTab,
+      activeTab,
     }
   )
 }

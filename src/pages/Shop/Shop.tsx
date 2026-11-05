@@ -26,6 +26,8 @@ const Shop = () => {
      changePriceTo,
      changeSort,
      resetAll,
+     selectTab,
+     activeTab,
    } = useShopFilters()
 
   return (
@@ -60,6 +62,8 @@ const Shop = () => {
             priceTo={priceTo}
             sort={sort}
             onChangeSort={changeSort}
+            activeTab={activeTab}
+            onSelectTab={selectTab}
           />
         </div>
       </main>

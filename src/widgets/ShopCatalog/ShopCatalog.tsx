@@ -16,6 +16,7 @@ import useCatalog from "@/widgets/ShopCatalog/model/useCatalog.ts";
 import {getPageNumbers} from "@/widgets/ShopCatalog/lib/getPageNumbers.ts";
 import {filterGames} from "@/widgets/ShopCatalog/lib/filterGames.ts";
 import {sortGames} from "@/widgets/ShopCatalog/lib/sortGames.ts";
+import {shopTabs, type ShopTab} from "@/widgets/ShopCatalog/lib/shopTabs.ts";
 import './ShopCatalog.scss'
 
 interface ShopCatalogProp {
@@ -30,6 +31,8 @@ interface ShopCatalogProp {
   priceTo: string,
   sort: ShopSortValue,
   onChangeSort: (value: ShopSortValue) => void,
+  activeTab: ShopTab,
+  onSelectTab: (tab: ShopTab) => void,
 }
 
 const ShopCatalog = (props: ShopCatalogProp) => {
@@ -45,6 +48,8 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     priceTo,
     sort,
     onChangeSort,
+    activeTab,
+    onSelectTab,
   } = props
 
   const filteredGames = filterGames({
@@ -72,39 +77,35 @@ const ShopCatalog = (props: ShopCatalogProp) => {
     <section
       className={classNames(className, 'shop-catalog')}
     >
+      <div className="shop-catalog__header">
+        <div className="shop-catalog__header-action">
+          {shopTabs.map((tab) => (
+            <Button
+              key={tab.value}
+              className={classNames('shop-catalog__btn', {
+                'shop-catalog__btn--active': activeTab === tab.value
+              })}
+              label={tab.title}
+              mode='transparent'
+              onClick={() => onSelectTab(tab.value)}
+            />
+          ))}
+        </div>
+        <div className="shop-catalog__header-controls">
+          <Dropdown
+            options={shopSortOption}
+            value={sort}
+            onChange={(event) => onChangeSort(event.target.value as ShopSortValue)}
+          />
+          <ViewToggle
+            activeView={view}
+            onChange={setView}
+          />
+        </div>
+      </div>
       {sortedGames.length === 0
         ? <p className="shop-catalog__empty">No games found</p>
         : <>
-          <div className="shop-catalog__header">
-            <div className="shop-catalog__header-action">
-              <Button
-                className="shop-catalog__btn"
-                label="All Games"
-                mode='transparent'
-              />
-              <Button
-                className="shop-catalog__btn"
-                label="Popular"
-                mode='transparent'
-              />
-              <Button
-                className="shop-catalog__btn"
-                label="Top Sellers"
-                mode='transparent'
-              />
-            </div>
-            <div className="shop-catalog__header-controls">
-              <Dropdown
-                options={shopSortOption}
-                value={sort}
-                onChange={(event) => onChangeSort(event.target.value as ShopSortValue)}
-              />
-              <ViewToggle
-                activeView={view}
-                onChange={setView}
-              />
-            </div>
-          </div>
           <div className="shop-catalog__main">
             {view === 'grid'
               ? <GameGrid

@@ -1,3 +1,4 @@
+import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
 import Sidebar from "@/shared/ui/Sidebar";
 import Button from "@/shared/ui/Button";
 import Icon from "@/shared/ui/Icon";
@@ -13,8 +14,10 @@ const MainSidebar = (props: MainSidebarProps) => {
     className,
   } = props
 
+  const isOpen = useSidebarStore((state) => state.isOpen)
+
   return (
-    <Sidebar className={className}>
+    <Sidebar className={className} isOpen={isOpen}>
       <nav className="sidebar__nav">
         {sidebarItems.map((group) => (
           <div

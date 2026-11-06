@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import type {Genre} from "@/entities/game/types/game.ts";
+import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import Dropdown from "@/shared/ui/Dropdown";
@@ -50,13 +51,14 @@ const ShopSidebar = (props: ShopSidebarProps) => {
     onReset,
   } = props
 
+  const isOpen = useSidebarStore((state) => state.isOpen)
   const genresGroup = sidebarGroups.find((group) => group.title === "GENRES")
   const priceGroup = sidebarGroups.find((group) => group.title === "PRICE")
   const discountGroup = sidebarGroups.find((group) => group.title === "DISCOUNTS")
 
 
   return (
-    <aside className={classNames(className, 'shop-sidebar hidden-mobile')}>
+    <aside className={classNames(className, 'shop-sidebar', {'shop-sidebar--open': isOpen})}>
       <div className="shop-sidebar__inner">
 
         <div className="shop-sidebar__filter">

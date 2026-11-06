@@ -1,12 +1,14 @@
 import Logo from "@/shared/ui/Logo";
-import Nav from "@/widgets/Header/ui/Nav";
+import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
+import Nav from "@/widgets/Header/ui/Nav";
 import BurgerButton from "@/widgets/Header/ui/BurgerButton";
 import {navItems} from "@/widgets/Header/lib/navItems.ts";
 import useBurger from "@/widgets/Header/model/useBurger.ts";
 import MobileMenu from "@/widgets/Header/ui/MobileMenu";
 import './Header.scss'
+
 
 const Header = () => {
 
@@ -14,6 +16,8 @@ const Header = () => {
     isActive,
     handleToggleMenu,
   } = useBurger()
+
+  const toggleSidebar = useSidebarStore((state) => state.toggle)
 
   return (
     <header
@@ -52,6 +56,7 @@ const Header = () => {
             mode="transparent"
             iconName="filter"
             iconPosition="before"
+            onClick={toggleSidebar}
           />
           <Button
             className="header_actions-btn hidden-mobile"

@@ -4,18 +4,20 @@ import './Sidebar.scss'
 
 interface SidebarProps {
   className?: string,
+  isOpen?: boolean,
   children: React.ReactNode,
 }
 
 const Sidebar = (props: SidebarProps) => {
   const {
     className,
+    isOpen,
     children,
   } = props
 
   return (
     <aside
-      className={classNames('sidebar hidden-mobile', className)}
+      className={classNames('sidebar', {'sidebar--open': isOpen}, className)}
     >
       <div className="sidebar__inner">
         {children}

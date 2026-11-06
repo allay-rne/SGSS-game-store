@@ -9,3 +9,24 @@
     gap: 32px;
   }
 }
+
+@include mobile {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform var(--transition-fast);
+
+    &--open {
+      transform: none;
+    }
+
+    &__nav {
+      background-color: var(--color-bg);
+    }
+  }
+}

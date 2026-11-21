@@ -2,7 +2,7 @@
   &__inner {
     height: 100%;
     transition: transform 0.3s ease;
-    transform-origin: top center;
+    transform-origin: center;
   }
 
   &__img {
@@ -150,7 +150,7 @@
 
   &:hover {
     .game-card__inner {
-      transform: perspective(60px) rotateX(4deg) scale(1.02);
+      transform: scale(1.02);
     }
 
     .game-card__img-game {

@@ -1,6 +1,7 @@
 import {fallbackGames} from "@/entities/game/model/fallbackGames.ts";
 import {getGamesByIds} from "@/entities/game/lib/getGamesByIds.ts";
 import {useCartStore} from "@/features/cart/model/useCartStore.ts";
+import {useLibraryStore} from "@/features/library/model/useLibraryStore.ts";
 import Button from "@/shared/ui/Button";
 import './Cart.scss'
 
@@ -8,6 +9,12 @@ const Cart = () => {
   const ids = useCartStore((state) => state.ids)
   const remove = useCartStore((state) => state.remove)
   const clear = useCartStore((state) => state.clear)
+  const addToLibrary = useLibraryStore((state) => state.add)
+
+  const handleCheckout = () => {
+    addToLibrary(ids)
+    clear()
+  }
 
   const games = getGamesByIds(fallbackGames, ids)
   const total = games.reduce((sum, game) => sum + game.price, 0)
@@ -20,14 +27,20 @@ const Cart = () => {
         {games.length === 0 ? (
           <div className="cart__empty">
             <p className="cart__empty-text">Your cart is empty</p>
-            <Button label="Continue shopping" href="/shop" />
+            <Button
+              label="Continue shopping"
+              href="/shop"
+            />
           </div>
         ) : (
           <div className="cart__body">
             <div className="cart__main">
               <ul className="cart__list">
                 {games.map((game) => (
-                  <li className="cart__item" key={game.id}>
+                  <li
+                    className="cart__item"
+                    key={game.id}
+                  >
                     <img
                       className="cart__item-img"
                       src={game.background_image}
@@ -48,8 +61,16 @@ const Cart = () => {
                 ))}
               </ul>
               <div className="cart__actions">
-                <Button label="Continue shopping" mode="transparent" href="/shop" />
-                <Button label="Remove all" mode="transparent" onClick={clear} />
+                <Button
+                  label="Continue shopping"
+                  mode="transparent"
+                  href="/shop"
+                />
+                <Button
+                  label="Remove all"
+                  mode="transparent"
+                  onClick={clear}
+                />
               </div>
             </div>
 
@@ -58,7 +79,10 @@ const Cart = () => {
                 <span>Total</span>
                 <span className="cart__summary-total">{total}$</span>
               </div>
-              <Button label="Proceed to checkout" />
+              <Button
+                label="Proceed to checkout"
+                onClick={handleCheckout}
+              />
             </aside>
           </div>
         )}

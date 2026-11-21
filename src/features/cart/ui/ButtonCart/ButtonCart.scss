@@ -2,4 +2,8 @@
   &--active {
     color: var(--color-primary-light);
   }
+  &--owned {
+    opacity: 0.4;
+    pointer-events: none;
+  }
 }

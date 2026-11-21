@@ -23,6 +23,7 @@ const Header = () => {
   const cartCount = useCartStore((state) => state.ids.length)
   const {pathname} = useLocation()
   const isSearchHidden = ['/cart', '/wishlist'].includes(pathname)
+  const isFilterHidden = ['/cart', '/wishlist', '/library'].includes(pathname)
 
   return (
     <header
@@ -58,7 +59,7 @@ const Header = () => {
               iconPosition="before"
             />
           )}
-          {!isSearchHidden && (
+          {!isFilterHidden && (
             <Button
               className="header_actions-btn visible-mobile"
               label="Filter"

@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import type {Genre} from "@/entities/game/types/game.ts";
 import ButtonFavorite from "@/features/favorite/ui/ButtonFavorite";
+import ButtonCart from "@/features/cart/ui/ButtonCart";
 import Checkbox from "@/shared/ui/Checkbox";
 import './GameCard.scss'
-
 
 interface GameCardProps {
   className?: string;
@@ -65,6 +65,7 @@ const GameCard = (props: GameCardProps) => {
             {priceBlock}
           </div>
           <div className="game-card__favorite-list">
+            <ButtonCart gameId={id} />
             <ButtonFavorite gameId={id} />
           </div>
         </div>
@@ -99,6 +100,7 @@ const GameCard = (props: GameCardProps) => {
             {priceBlock}
           </div>
           <div className="game-card__favorite">
+            <ButtonCart gameId={id} />
             <ButtonFavorite gameId={id} />
           </div>
         </div>

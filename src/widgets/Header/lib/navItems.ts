@@ -22,8 +22,4 @@ export const navItems:Navigation = [
     label: 'Wishlist',
     to: '/wishlist',
   },
-  {
-    label: 'Profile',
-    to: '/profile',
-  },
 ]

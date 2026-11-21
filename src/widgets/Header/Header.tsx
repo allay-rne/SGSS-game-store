@@ -1,5 +1,7 @@
+import {useLocation} from "react-router-dom";
 import Logo from "@/shared/ui/Logo";
 import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
+import {useCartStore} from "@/features/cart/model/useCartStore.ts";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import Nav from "@/widgets/Header/ui/Nav";
@@ -18,6 +20,9 @@ const Header = () => {
   } = useBurger()
 
   const toggleSidebar = useSidebarStore((state) => state.toggle)
+  const cartCount = useCartStore((state) => state.ids.length)
+  const {pathname} = useLocation()
+  const isSearchHidden = ['/cart', '/wishlist'].includes(pathname)
 
   return (
     <header
@@ -32,41 +37,52 @@ const Header = () => {
           className="header__nav hidden-mobile"
           items={navItems}
         />
-        <Input
-          className="header__input"
-          type="text"
-          name="search"
-          placeholder="Search by games, genres, developers..."
-          iconName="search"
-        />
+        {!isSearchHidden && (
+          <Input
+            className="header__input"
+            type="text"
+            name="search"
+            placeholder="Search by games, genres, developers..."
+            iconName="search"
+          />
+        )}
         <div className="header__actions">
 
-          <Button
-            className="header_search-btn"
-            label="Search"
-            isLabelHidden
-            mode="transparent"
-            iconName="search"
-            iconPosition="before"
-          />
-          <Button
-            className="header_actions-btn visible-mobile"
-            label="Filter"
-            isLabelHidden
-            mode="transparent"
-            iconName="filter"
-            iconPosition="before"
-            onClick={toggleSidebar}
-          />
-          <Button
-            className="header_actions-btn hidden-mobile"
-            label="Cart"
-            isLabelHidden
-            mode="transparent"
-            iconName='basketShop'
-            iconPosition='before'
-            href="/cart"
-          />
+          {!isSearchHidden && (
+            <Button
+              className="header_search-btn"
+              label="Search"
+              isLabelHidden
+              mode="transparent"
+              iconName="search"
+              iconPosition="before"
+            />
+          )}
+          {!isSearchHidden && (
+            <Button
+              className="header_actions-btn visible-mobile"
+              label="Filter"
+              isLabelHidden
+              mode="transparent"
+              iconName="filter"
+              iconPosition="before"
+              onClick={toggleSidebar}
+            />
+          )}
+          <div className="header__cart hidden-mobile">
+            <Button
+              className="header_actions-btn"
+              label="Cart"
+              isLabelHidden
+              mode="transparent"
+              iconName='basketShop'
+              iconPosition='before'
+              href="/cart"
+            />
+            {cartCount > 0 && (
+              <span className="header__cart-count">{cartCount}</span>
+            )}
+          </div>
           <Button
             className="header_actions-btn hidden-mobile"
             label="Notifications"

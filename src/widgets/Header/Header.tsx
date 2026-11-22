@@ -1,6 +1,7 @@
 import {useEffect} from "react";
+import type * as React from "react";
 import {useSearchStore} from "@/features/search/model/useSearchStore.ts";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import Logo from "@/shared/ui/Logo";
 import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
 import {useCartStore} from "@/features/cart/model/useCartStore.ts";
@@ -24,6 +25,7 @@ const Header = () => {
   const toggleSidebar = useSidebarStore((state) => state.toggle)
   const cartCount = useCartStore((state) => state.ids.length)
   const {pathname} = useLocation()
+  const navigate = useNavigate()
   const isSearchHidden = ['/cart', '/wishlist'].includes(pathname)
   const isFilterHidden = ['/cart', '/wishlist', '/library'].includes(pathname)
 
@@ -31,9 +33,17 @@ const Header = () => {
   const setQuery = useSearchStore((state) => state.setQuery)
   const resetSearch = useSearchStore((state) => state.reset)
 
+  const handleSearchKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== 'Enter') return
+    if (pathname === '/shop' || pathname === '/library') return
+    navigate('/shop')
+  }
+
   useEffect(() => {
-    resetSearch()
+    if (pathname !== '/shop') resetSearch()
   }, [pathname, resetSearch])
+
+
 
   return (
     <header
@@ -57,6 +67,7 @@ const Header = () => {
             iconName="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
+            onKeyDown={handleSearchKeyDown}
           />
         )}
         <div className="header__actions">

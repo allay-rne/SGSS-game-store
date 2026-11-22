@@ -13,6 +13,7 @@ import BurgerButton from "@/widgets/Header/ui/BurgerButton";
 import {navItems} from "@/widgets/Header/lib/navItems.ts";
 import useBurger from "@/widgets/Header/model/useBurger.ts";
 import MobileMenu from "@/widgets/Header/ui/MobileMenu";
+import NotificationsModal from "@/widgets/Header/ui/NotificationsModal";
 import './Header.scss'
 
 
@@ -24,6 +25,7 @@ const Header = () => {
   } = useBurger()
 
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false)
 
   const searchInputRef = useRef<HTMLInputElement>(null)
   const toggleSidebar = useSidebarStore((state) => state.toggle)
@@ -130,6 +132,7 @@ const Header = () => {
             mode="transparent"
             iconName='bell'
             iconPosition='before'
+            onClick={() => setIsNotificationsOpen(true)}
           />
           <Button
             className="header_actions-btn hidden-mobile"
@@ -149,6 +152,11 @@ const Header = () => {
 
       <MobileMenu
         isOpen={isActive}
+        onOpenNotifications={() => setIsNotificationsOpen(true)}
+      />
+      <NotificationsModal
+        isOpen={isNotificationsOpen}
+        onClose={() => setIsNotificationsOpen(false)}
       />
     </header>
   )

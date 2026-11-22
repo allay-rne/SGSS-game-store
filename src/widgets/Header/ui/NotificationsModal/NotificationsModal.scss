@@ -1,0 +1,33 @@
+.notifications-modal {
+  z-index: 1001;
+
+  .modal__inner {
+    display: flex;
+    flex-direction: column;
+    width: min(420px, calc(100% - 32px));
+    height: auto;
+    margin: 80px auto 0;
+    padding: 20px;
+    background: var(--color-surface);
+    border: var(--border-width-s) solid var(--color-border);
+    border-radius: var(--border-radius-m);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &__empty {
+    padding: 24px 0;
+    text-align: center;
+    color: var(--color-text-secondary);
+  }
+}

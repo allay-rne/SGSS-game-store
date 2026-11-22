@@ -8,6 +8,7 @@ interface ModalProps {
   animation: 'slide' | 'fade',
   isOpen: boolean,
   ariaLabel: string,
+  onClose?: () => void,
 }
 
 const Modal = (props: ModalProps) => {
@@ -17,6 +18,7 @@ const Modal = (props: ModalProps) => {
     animation,
     isOpen,
     ariaLabel,
+    onClose,
   } = props
 
   return (
@@ -28,6 +30,9 @@ const Modal = (props: ModalProps) => {
     role="dialog"
     aria-modal={true}
     aria-label={ariaLabel}
+    onClick={(event) => {
+      if (event.target === event.currentTarget) onClose?.()
+    }}
   >
     <div className="modal__inner">
       {children}

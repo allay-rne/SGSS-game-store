@@ -9,12 +9,14 @@ import './MobileMenu.scss'
 interface MobileMenuProps {
   className?: string,
   isOpen: boolean,
+  onOpenNotifications: () => void,
 }
 
 const MobileMenu = (props:MobileMenuProps) => {
   const {
     className,
     isOpen,
+    onOpenNotifications,
   } = props
 
   return (
@@ -34,11 +36,12 @@ const MobileMenu = (props:MobileMenuProps) => {
        <div className="mobile-menu__actions">
          <Button
            className="header_actions-btn"
-           label="Shop basket"
+           label="Cart"
            isLabelHidden
            mode="transparent"
            iconName='basketShop'
            iconPosition='before'
+           href="/cart"
          />
          <Button
            className="header_actions-btn"
@@ -47,6 +50,7 @@ const MobileMenu = (props:MobileMenuProps) => {
            mode="transparent"
            iconName='bell'
            iconPosition='before'
+           onClick={onOpenNotifications}
          />
          <Button
            className="header_actions-btn"

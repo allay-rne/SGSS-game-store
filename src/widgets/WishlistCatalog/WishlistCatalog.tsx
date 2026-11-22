@@ -1,8 +1,10 @@
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import classNames from 'classnames'
 import {fallbackGames} from "@/entities/game/model/fallbackGames.ts";
 import {getGamesByIds} from "@/entities/game/lib/getGamesByIds.ts"
 import {useFavoriteStore} from "@/features/favorite/model/useFavoriteStore.ts"
+import {useCartStore} from "@/features/cart/model/useCartStore.ts";
 import Icon from "@/shared/ui/Icon";
 import Button from "@/shared/ui/Button";
 import GameGrid from "@/shared/ui/GameGrid";
@@ -36,6 +38,8 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
   const favoriteIds = useFavoriteStore(state => state.favoriteIds)
   const favoriteGames = getGamesByIds(fallbackGames, favoriteIds)
   const clearFavorites = useFavoriteStore(state => state.clearFavorites)
+  const addToCart = useCartStore(state => state.addMany)
+  const navigate = useNavigate()
   const sortedGames = sortGames(favoriteGames)
 
   const {
@@ -45,6 +49,11 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
     selectAll,
     isAllSelected,
   } = useWishlistSelection(favoriteIds);
+
+  const handleBuyNow = () => {
+    addToCart([...selectedCheckbox])
+    navigate('/cart')
+  }
 
   const [view, setView] = useState<'grid'|'list'>('list')
   const [notificationsOn, setNotificationsOn] = useState<boolean>(false);
@@ -76,6 +85,7 @@ const WishlistCatalog = (props: WishlistCatalogProps) => {
           label="Buy now"
           mode="transparent"
           disabled={selectedCheckbox.size === 0}
+          onClick={handleBuyNow}
         />
         <Button
           label="Clear list"

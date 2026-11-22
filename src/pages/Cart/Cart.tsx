@@ -2,6 +2,7 @@ import {fallbackGames} from "@/entities/game/model/fallbackGames.ts";
 import {getGamesByIds} from "@/entities/game/lib/getGamesByIds.ts";
 import {useCartStore} from "@/features/cart/model/useCartStore.ts";
 import {useLibraryStore} from "@/features/library/model/useLibraryStore.ts";
+import {useFavoriteStore} from "@/features/favorite/model/useFavoriteStore.ts";
 import Button from "@/shared/ui/Button";
 import './Cart.scss'
 
@@ -10,9 +11,11 @@ const Cart = () => {
   const remove = useCartStore((state) => state.remove)
   const clear = useCartStore((state) => state.clear)
   const addToLibrary = useLibraryStore((state) => state.add)
+  const removeFromFavorites = useFavoriteStore((state) => state.removeMany)
 
   const handleCheckout = () => {
     addToLibrary(ids)
+    removeFromFavorites(ids)
     clear()
   }
 

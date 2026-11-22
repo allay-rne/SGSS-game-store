@@ -1,3 +1,5 @@
+import {useEffect} from "react";
+import {useSearchStore} from "@/features/search/model/useSearchStore.ts";
 import {useLocation} from "react-router-dom";
 import Logo from "@/shared/ui/Logo";
 import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
@@ -25,6 +27,14 @@ const Header = () => {
   const isSearchHidden = ['/cart', '/wishlist'].includes(pathname)
   const isFilterHidden = ['/cart', '/wishlist', '/library'].includes(pathname)
 
+  const query = useSearchStore((state) => state.query)
+  const setQuery = useSearchStore((state) => state.setQuery)
+  const resetSearch = useSearchStore((state) => state.reset)
+
+  useEffect(() => {
+    resetSearch()
+  }, [pathname, resetSearch])
+
   return (
     <header
       className='header'
@@ -45,6 +55,8 @@ const Header = () => {
             name="search"
             placeholder="Search by games, genres, developers..."
             iconName="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
           />
         )}
         <div className="header__actions">

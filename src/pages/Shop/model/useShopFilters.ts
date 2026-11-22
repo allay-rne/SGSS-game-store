@@ -1,18 +1,29 @@
 import {useState} from "react";
+import {useSearchStore} from "@/features/search/model/useSearchStore.ts";
 import type {Genre} from "@/entities/game/types/game.ts";
 import type {ShopSortValue} from "@/widgets/ShopSidebar/lib/shopSortOptions.ts";
 import type {ShopTab} from "@/widgets/ShopCatalog/lib/shopTabs.ts";
 
 const useShopFilters = () => {
 
+
+  const search = useSearchStore((state) => state.query)
+  const setSearch = useSearchStore((state) => state.setQuery)
+
   const [page, setPage] = useState(1)
-  const [search, setSearch] = useState<string>('');
   const [selectedGenres, setSelectedGenres] = useState<Set<Genre>>(new Set());
   const [selectedPrice, setSelectedPrice] = useState<string>('any-price');
   const [selectedDiscount, setSelectedDiscount] = useState<string>('all-games');
   const [priceFrom, setPriceFrom] = useState<string>('');
   const [priceTo, setPriceTo] = useState<string>('');
   const [sort, setSort] = useState<ShopSortValue>('popular');
+
+  const [prevSearch, setPrevSearch] = useState(search)
+
+  if (search !== prevSearch) {
+    setPrevSearch(search)
+    setPage(1)
+  }
 
   const resetPage = (action: () => void) => {
     setPage(1)
@@ -94,6 +105,7 @@ const useShopFilters = () => {
     sort === 'discount-high-to-low' ? 'top-sellers'
       : selectedPrice === 'free' ? 'free'
         : 'all'
+
 
   return(
     {

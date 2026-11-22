@@ -49,6 +49,7 @@ import GridIcon from '@/shared/assets/icons/grid.svg?react';
 import ListIcon from '@/shared/assets/icons/list.svg?react';
 import ArrowLeftIcon from '@/shared/assets/icons/arrowLeft.svg?react';
 import BellCheckIcon from '@/shared/assets/icons/bell-check.svg?react';
+import CloseIcon from '@/shared/assets/icons/close.svg?react';
 
 import './Icon.scss'
 
@@ -59,6 +60,7 @@ const icon = {
   arrowRight: ArrowRightIcon,
   arrowLeft: ArrowLeftIcon,
   bellCheck: BellCheckIcon,
+  close: CloseIcon,
   //social
   gmail: GmailIcon,
   telegram: TelegramIcon,

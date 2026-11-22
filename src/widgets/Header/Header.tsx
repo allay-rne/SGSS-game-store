@@ -1,5 +1,6 @@
-import {useEffect} from "react";
 import type * as React from "react";
+import {useEffect, useRef, useState} from "react";
+import classNames from "classnames";
 import {useSearchStore} from "@/features/search/model/useSearchStore.ts";
 import {useLocation, useNavigate} from "react-router-dom";
 import Logo from "@/shared/ui/Logo";
@@ -22,6 +23,9 @@ const Header = () => {
     handleToggleMenu,
   } = useBurger()
 
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+
+  const searchInputRef = useRef<HTMLInputElement>(null)
   const toggleSidebar = useSidebarStore((state) => state.toggle)
   const cartCount = useCartStore((state) => state.ids.length)
   const {pathname} = useLocation()
@@ -32,17 +36,26 @@ const Header = () => {
   const query = useSearchStore((state) => state.query)
   const setQuery = useSearchStore((state) => state.setQuery)
   const resetSearch = useSearchStore((state) => state.reset)
-
+  const closeSearch = () => {
+    setIsSearchOpen(false)
+    resetSearch()
+  }
   const handleSearchKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Escape') {
+      closeSearch()
+      return
+    }
     if (event.key !== 'Enter') return
     if (pathname === '/shop' || pathname === '/library') return
     navigate('/shop')
   }
 
   useEffect(() => {
+    if (isSearchOpen) searchInputRef.current?.focus()
+  }, [isSearchOpen])
+  useEffect(() => {
     if (pathname !== '/shop') resetSearch()
   }, [pathname, resetSearch])
-
 
 
   return (
@@ -60,14 +73,16 @@ const Header = () => {
         />
         {!isSearchHidden && (
           <Input
-            className="header__input"
+            className={classNames('header__input', {'header__input--open': isSearchOpen})}
             type="text"
             name="search"
             placeholder="Search by games, genres, developers..."
-            iconName="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             onKeyDown={handleSearchKeyDown}
+            iconName={isSearchOpen ? 'close' : 'search'}
+            onIconClick={isSearchOpen ? closeSearch : undefined}
+            ref={searchInputRef}
           />
         )}
         <div className="header__actions">
@@ -80,6 +95,7 @@ const Header = () => {
               mode="transparent"
               iconName="search"
               iconPosition="before"
+              onClick={() => setIsSearchOpen(true)}
             />
           )}
           {!isFilterHidden && (

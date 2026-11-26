@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {Outlet, useLocation} from "react-router-dom";
 import classNames from "classnames";
 import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
+import AuthModal from "@/features/auth/ui/AuthModal";
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
 import './MainLayout.scss'
@@ -28,6 +29,7 @@ const MainLayout = () => {
         <Outlet />
       </div>
       <Footer />
+      <AuthModal />
     </>
   )
 }

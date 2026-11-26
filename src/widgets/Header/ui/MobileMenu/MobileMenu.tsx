@@ -1,9 +1,12 @@
 import classNames from 'classnames'
+import {useAuthStore} from "@/features/auth/model/useAuthStore.ts";
+import {useAuthModalStore} from "@/features/auth/model/useAuthModalStore.ts";
 import Modal from "@/shared/ui/Modal";
 import Nav from "@/widgets/Header/ui/Nav";
 import Button from "@/shared/ui/Button";
 import {navItems} from "@/widgets/Header/lib/navItems.ts";
 import './MobileMenu.scss'
+
 
 
 interface MobileMenuProps {
@@ -18,6 +21,9 @@ const MobileMenu = (props:MobileMenuProps) => {
     isOpen,
     onOpenNotifications,
   } = props
+
+  const user = useAuthStore((state) => state.user)
+  const openAuth = useAuthModalStore((state) => state.open)
 
   return (
     <Modal
@@ -52,14 +58,27 @@ const MobileMenu = (props:MobileMenuProps) => {
            iconPosition='before'
            onClick={onOpenNotifications}
          />
-         <Button
-           className="header_actions-btn"
-           label="Profile"
-           isLabelHidden
-           mode="transparent"
-           iconName="auth"
-           iconPosition='before'
-         />
+         {user ? (
+           <Button
+             className="header_actions-btn"
+             label="Profile"
+             isLabelHidden
+             mode="transparent"
+             iconName="auth"
+             iconPosition='before'
+             href="/profile"
+           />
+         ) : (
+           <Button
+             className="header_actions-btn"
+             label="Sign in"
+             isLabelHidden
+             mode="transparent"
+             iconName="auth"
+             iconPosition='before'
+             onClick={openAuth}
+           />
+         )}
        </div>
      </nav>
     </Modal>

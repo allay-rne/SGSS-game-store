@@ -6,6 +6,8 @@ import {useLocation, useNavigate} from "react-router-dom";
 import Logo from "@/shared/ui/Logo";
 import {useSidebarStore} from "@/features/sidebar/model/useSidebarStore.ts";
 import {useCartStore} from "@/features/cart/model/useCartStore.ts";
+import {useAuthStore} from "@/features/auth/model/useAuthStore.ts";
+import {useAuthModalStore} from "@/features/auth/model/useAuthModalStore.ts";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import Nav from "@/widgets/Header/ui/Nav";
@@ -26,6 +28,8 @@ const Header = () => {
 
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false)
+  const user = useAuthStore((state) => state.user)
+  const openAuth = useAuthModalStore((state) => state.open)
 
   const searchInputRef = useRef<HTMLInputElement>(null)
   const toggleSidebar = useSidebarStore((state) => state.toggle)
@@ -134,14 +138,27 @@ const Header = () => {
             iconPosition='before'
             onClick={() => setIsNotificationsOpen(true)}
           />
-          <Button
-            className="header_actions-btn hidden-mobile"
-            label="Profile"
-            isLabelHidden
-            mode="transparent"
-            iconName="auth"
-            iconPosition='before'
-          />
+          {user ? (
+            <Button
+              className="header_actions-btn hidden-mobile"
+              label="Profile"
+              isLabelHidden
+              mode="transparent"
+              iconName="auth"
+              iconPosition='before'
+              href="/profile"
+            />
+          ) : (
+            <Button
+              className="header_actions-btn hidden-mobile"
+              label="Sign in"
+              isLabelHidden
+              mode="transparent"
+              iconName="auth"
+              iconPosition='before'
+              onClick={openAuth}
+            />
+          )}
 
           <BurgerButton
             isActive={isActive}

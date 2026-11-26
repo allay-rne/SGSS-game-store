@@ -5,6 +5,7 @@ import Shop from "@/pages/Shop";
 import Library from "@/pages/Library";
 import Wishlist from "@/pages/Wishlist";
 import Cart from "@/pages/Cart";
+import Profile from "@/pages/Profile";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <Route path="/library" element={<Library />} />
     <Route path="/wishlist" element={<Wishlist />} />
     <Route path="/cart" element={<Cart />} />
+    <Route path="/profile" element={<Profile />} />
   </Route>
     </Routes>
   )
